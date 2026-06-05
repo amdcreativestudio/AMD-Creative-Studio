@@ -229,7 +229,57 @@ font-size:1.1rem;
 max-width:700px;
 text-align:center;
 }
+<div class="slideshow-container">
 
+    <img class="slide active" src="abcdef.png" alt="Work 1">
+    <img class="slide" src="ads.png" alt="Work 2">
+    <img class="slide" src="asd.png" alt="Work 3">
+
+    <div class="dots">
+        <span class="dot active-dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+</div>
+    .slideshow-container{
+max-width:700px;
+margin:40px auto 0;
+text-align:center;
+}
+
+.slide{
+display:none;
+width:100%;
+border-radius:20px;
+}
+
+.slide.active{
+display:block;
+animation:fade 1s;
+}
+
+.dots{
+margin-top:15px;
+}
+
+.dot{
+height:12px;
+width:12px;
+margin:0 5px;
+background:#666;
+border-radius:50%;
+display:inline-block;
+}
+
+.active-dot{
+background:#00bfff;
+}
+
+@keyframes fade{
+from{opacity:.4;}
+to{opacity:1;}
+}
 @media(max-width:768px){
 
 nav{
@@ -399,6 +449,32 @@ Professional Creative Design & Digital Media Studio
 function toggleMenu(){
 document.getElementById("mobileMenu").classList.toggle("show");
 }
+<script>
+
+let slideIndex = 0;
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlides(){
+
+slides.forEach(slide => slide.classList.remove("active"));
+dots.forEach(dot => dot.classList.remove("active-dot"));
+
+slideIndex++;
+
+if(slideIndex > slides.length){
+slideIndex = 1;
+}
+
+slides[slideIndex - 1].classList.add("active");
+dots[slideIndex - 1].classList.add("active-dot");
+
+setTimeout(showSlides,3000);
+
+}
+
+showSlides();
 
 </script>
 <footer>
