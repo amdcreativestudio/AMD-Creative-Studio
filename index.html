@@ -1,339 +1,117 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <link rel="icon" type="image/png" href="abcde.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AMD Creative Studio</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI,sans-serif;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:#000;
-color:#fff;
-overflow-x:hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#000;color:#fff;overflow-x:hidden;}
 
 .background{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+position:fixed;top:0;left:0;width:100%;height:100%;
 background:url('agsgdg.png') center center/cover no-repeat;
-z-index:-2;
-animation:fadeBackground 6s infinite ease-in-out;
+z-index:-2;animation:fadeBackground 6s infinite ease-in-out;
 }
-
 .background::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
+content:"";position:absolute;top:0;left:0;width:100%;height:100%;
 background:rgba(0,0,0,0.65);
 }
-
-@keyframes fadeBackground{
-0%{opacity:.5;}
-50%{opacity:1;}
-100%{opacity:.5;}
-}
+@keyframes fadeBackground{0%{opacity:.5;}50%{opacity:1;}100%{opacity:.5;}}
 
 header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:18px 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-backdrop-filter:blur(12px);
-background:rgba(0,0,0,.25);
-z-index:1000;
+position:fixed;top:0;left:0;width:100%;padding:18px 5%;
+display:flex;justify-content:space-between;align-items:center;
+backdrop-filter:blur(12px);background:rgba(0,0,0,.25);z-index:1000;
 }
 
 .logo{
-font-size:2rem;
-font-weight:700;
+font-size:2rem;font-weight:700;
 background:linear-gradient(90deg,#8a2be2,#00bfff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 
-nav{
-display:flex;
-gap:35px;
-}
+nav{display:flex;gap:35px;}
+nav a{color:white;text-decoration:none;transition:.3s;}
+nav a:hover{color:#00bfff;}
 
-nav a{
-color:white;
-text-decoration:none;
-transition:.3s;
-}
-
-nav a:hover{
-color:#00bfff;
-}
-
-.menu-btn{
-display:none;
-font-size:32px;
-background:none;
-border:none;
-color:white;
-cursor:pointer;
-}
+.menu-btn{display:none;font-size:32px;background:none;border:none;color:white;cursor:pointer;}
 
 .mobile-menu{
-display:none;
-position:absolute;
-top:80px;
-left:0;
-width:100%;
-background:#111;
-flex-direction:column;
+display:none;position:absolute;top:80px;left:0;width:100%;
+background:#111;flex-direction:column;
 }
-
-.mobile-menu a{
-padding:15px;
-text-decoration:none;
-color:white;
-border-bottom:1px solid #222;
-}
-
-.mobile-menu.show{
-display:flex;
-}
+.mobile-menu a{padding:15px;text-decoration:none;color:white;border-bottom:1px solid #222;}
+.mobile-menu.show{display:flex;}
 
 .hero{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
+min-height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
 padding:120px 20px 50px;
 }
 
 .hero h1{
 font-size:clamp(2.5rem,8vw,6rem);
-font-weight:800;
 background:linear-gradient(90deg,#8a2be2,#00bfff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 
-.hero p{
-margin-top:20px;
-font-size:clamp(1rem,2vw,1.3rem);
-max-width:700px;
-color:#ddd;
-}
+.hero p{margin-top:20px;font-size:clamp(1rem,2vw,1.3rem);color:#ddd;}
 
-#what-we-do{
-padding:100px 8%;
-}
+#logo-section,#order-cta{text-align:center;}
+#logo-section{padding:60px 20px;}
+#logo-section img{width:min(300px,80%);height:auto;}
 
-#what-we-do h2{
-font-size:2.2rem;
+#what-we-do,#faq{padding:100px 8%;}
+#what-we-do h2,#faq h2,#order-cta h2{
 margin-bottom:20px;
 background:linear-gradient(90deg,#8a2be2,#00bfff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
-
-#what-we-do p{
-max-width:700px;
-line-height:1.8;
-color:#d1d5db;
-}
-
-/* LOGO */
-
-#logo-section{
-padding:60px 20px;
-display:flex;
-justify-content:center;
-}
-
-#logo-section img{
-width:min(300px,80%);
-height:auto;
-}
-
-/* FAQ */
-
-#faq{
-padding:100px 8%;
-}
-
-#faq h2{
-text-align:center;
-margin-bottom:50px;
-font-size:2.3rem;
-background:linear-gradient(90deg,#8a2be2,#00bfff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+#what-we-do p,.faq-item p,#order-cta p{color:#d1d5db;line-height:1.8;}
 
 .faq-item{
 background:rgba(255,255,255,.05);
 backdrop-filter:blur(12px);
 border:1px solid rgba(255,255,255,.1);
-padding:25px;
-border-radius:15px;
-margin-bottom:20px;
+padding:25px;border-radius:15px;margin-bottom:20px;
 }
 
-.faq-item h3{
-margin-bottom:10px;
-}
-
-.faq-item p{
-color:#d1d5db;
-line-height:1.7;
-}
-
-#order-cta{
-padding:120px 20px;
-text-align:center;
-}
-
-#order-cta h2{
-font-size:2.5rem;
-background:linear-gradient(90deg,#8a2be2,#00bfff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-#order-cta p{
-margin:20px auto 0;
-color:#d1d5db;
-font-size:1.1rem;
-max-width:700px;
-text-align:center;
-}
-<div class="slideshow-container">
-
-    <img class="slide active" src="abcdef.png" alt="Work 1">
-    <img class="slide" src="ads.png" alt="Work 2">
-    <img class="slide" src="asd.png" alt="Work 3">
-
-    <div class="dots">
-        <span class="dot active-dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
-
-</div>
-    .slideshow-container{
-max-width:700px;
-margin:40px auto 0;
-text-align:center;
-}
-
-.slide{
-display:none;
-width:100%;
-border-radius:20px;
-}
-
-.slide.active{
-display:block;
-animation:fade 1s;
-}
-
-.dots{
-margin-top:15px;
-}
-
+.slideshow-container{max-width:700px;margin:40px auto 0;text-align:center;}
+.slide{display:none;width:100%;border-radius:20px;}
+.slide.active{display:block;animation:fade 1s;}
+.dots{margin-top:15px;}
 .dot{
-height:12px;
-width:12px;
-margin:0 5px;
-background:#666;
-border-radius:50%;
-display:inline-block;
+height:12px;width:12px;margin:0 5px;background:#666;
+border-radius:50%;display:inline-block;
 }
+.active-dot{background:#00bfff;}
+@keyframes fade{from{opacity:.4;}to{opacity:1;}}
 
-.active-dot{
-background:#00bfff;
-}
-
-@keyframes fade{
-from{opacity:.4;}
-to{opacity:1;}
-}
-@media(max-width:768px){
-
-nav{
-display:none;
-}
-
-.menu-btn{
-display:block;
-}
-
-.logo{
-font-size:1.3rem;
-}
-
-header{
-justify-content:flex-start;
-gap:20px;
-}
-
-#what-we-do,
-#faq{
-padding:70px 6%;
-}
-
-}
 footer{
-width:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:30px 20px;
-background:transparent;
-border:none;
+width:100%;display:flex;justify-content:center;align-items:center;
+padding:30px 20px;background:transparent;
 }
+footer p{text-align:center;color:#d1d5db;width:100%;}
 
-footer p{
-margin:0;
-text-align:center;
-color:#d1d5db;
-font-size:0.95rem;
-width:100%;
+@media(max-width:768px){
+nav{display:none;}
+.menu-btn{display:block;}
+.logo{font-size:1.3rem;}
+header{justify-content:flex-start;gap:20px;}
+#what-we-do,#faq{padding:70px 6%;}
 }
 </style>
-
 </head>
-
 <body>
 
 <div class="background"></div>
 
 <header>
-
 <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
 <div class="logo">AMD Creative Studio</div>
 
 <nav>
@@ -349,136 +127,70 @@ width:100%;
 <a href="#">Contact Us</a>
 <a href="#">About Us</a>
 </div>
-
 </header>
 
 <section class="hero">
-
 <h1>AMD Creative Studio</h1>
-
-<p>
-Professional Creative Design & Digital Media Studio
-</p>
-
+<p>Professional Creative Design & Digital Media Studio</p>
 </section>
-
-    </section>
 
 <section id="logo-section">
-
-
 <img src="abcde.png" alt="AMD Creative Studio Logo">
-
-
 </section>
-    
+
 <section id="what-we-do">
-
-<div class="container">
-
-    <h2>What We Do</h2>
-
-    <p>
-       <b> We create high-quality graphic designs tailored to your exact needs.
-        From social media posts and business branding to promotional materials,
-        custom artwork, and creative marketing materials, we bring your ideas
-        to life with professional design solutions that stand out.</b>
-    </p>
-
-</div>
-
-
-
+<h2>What We Do</h2>
+<p><b>We create high-quality graphic designs tailored to your exact needs. From social media posts and business branding to promotional materials, custom artwork, and creative marketing materials, we bring your ideas to life.</b></p>
+</section>
 
 <section id="faq">
-
-
 <h2>Frequently Asked Questions</h2>
-
-<div class="faq-item">
-    <h3>What graphic design services do you offer?</h3>
-    <p>We provide logos, banners, social media posts, thumbnails, posters, branding materials, and custom graphic design solutions.</p>
-</div>
-
-<div class="faq-item">
-    <h3>Can I request a custom design?</h3>
-    <p>Yes. Every design is created according to your specific requirements and preferences.</p>
-</div>
-
-<div class="faq-item">
-    <h3>How long does it take to complete an order?</h3>
-    <p>Delivery time depends on the complexity of the project, but most orders are completed within 1 day.</p>
-</div>
-
-<div class="faq-item">
-    <h3>Do you offer revisions?</h3>
-    <p>Yes. We provide revisions to ensure you are fully satisfied with the final result.</p>
-</div>
-
-<div class="faq-item">
-    <h3>What file formats do you provide?</h3>
-    <p>We can provide PNG, JPG, PDF, PSD, AI, and other formats when requested.</p>
-</div>
-
-<div class="faq-item">
-    <h3>How can I place an order?</h3>
-    <p>You can place an order through our Services page and select the service you need.</p>
-</div>
-
-<div class="faq-item">
-    <h3>Do you work with businesses and brands?</h3>
-    <p>Absolutely. We help businesses, startups, personal brands, and organizations create professional visual content.</p>
-</div>
-
-
+<div class="faq-item"><h3>What graphic design services do you offer?</h3><p>Logos, banners, posts, thumbnails, posters and more.</p></div>
+<div class="faq-item"><h3>Can I request a custom design?</h3><p>Yes. Every design is customized.</p></div>
+<div class="faq-item"><h3>How long does it take?</h3><p>Most orders are completed within 1 day.</p></div>
 </section>
 
 <section id="order-cta">
-
-
 <h2>Need a Custom Design?</h2>
+<p><b>To place an order, please visit our Services page and choose the service that best fits your needs.</b></p>
 
-<p>
-   <b> To place an order, please visit our Services page and choose the service that best fits your needs.</b>
-</p>
+<div class="slideshow-container">
+<img class="slide active" src="abcdef.png" alt="Work 1">
+<img class="slide" src="ads.png" alt="Work 2">
+<img class="slide" src="asd.png" alt="Work 3">
 
+<div class="dots">
+<span class="dot active-dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+</div>
 </section>
 
-<script>
+<footer>
+<p>© 2026 AMD Creative Studio. All Rights Reserved.</p>
+</footer>
 
+<script>
 function toggleMenu(){
 document.getElementById("mobileMenu").classList.toggle("show");
 }
-<script>
 
-let slideIndex = 0;
-
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
+let slideIndex=0;
+const slides=document.querySelectorAll(".slide");
+const dots=document.querySelectorAll(".dot");
 
 function showSlides(){
-
-slides.forEach(slide => slide.classList.remove("active"));
-dots.forEach(dot => dot.classList.remove("active-dot"));
-
+slides.forEach(s=>s.classList.remove("active"));
+dots.forEach(d=>d.classList.remove("active-dot"));
 slideIndex++;
-
-if(slideIndex > slides.length){
-slideIndex = 1;
-}
-
-slides[slideIndex - 1].classList.add("active");
-dots[slideIndex - 1].classList.add("active-dot");
-
+if(slideIndex>slides.length){slideIndex=1;}
+slides[slideIndex-1].classList.add("active");
+dots[slideIndex-1].classList.add("active-dot");
 setTimeout(showSlides,3000);
-
 }
-
 showSlides();
-
 </script>
-<footer>
-    <p>© 2026 AMD Creative Studio. All Rights Reserved.</p>
-</footer>
+
 </body>
 </html>
