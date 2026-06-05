@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AMD Creative Studio</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.background{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('IMAGE') center center/cover no-repeat;
+z-index:-2;
+animation:fadeBackground 6s infinite ease-in-out;
+}
+
+.background::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+z-index:-1;
+}
+
+@keyframes fadeBackground{
+0%{opacity:0.5;}
+50%{opacity:1;}
+100%{opacity:0.5;}
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(12px);
+background:rgba(0,0,0,0.25);
+z-index:1000;
+}
+
+.logo{
+font-size:2rem;
+font-weight:700;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav{
+display:flex;
+gap:35px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:1rem;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00bfff;
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu-btn{
+display:none;
+font-size:32px;
+background:none;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+display:none;
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:#111;
+flex-direction:column;
+}
+
+.mobile-menu a{
+padding:15px;
+text-decoration:none;
+color:white;
+border-bottom:1px solid #222;
+}
+
+.mobile-menu.show{
+display:flex;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 50px;
+}
+
+.hero h1{
+font-size:clamp(2.5rem,8vw,6rem);
+font-weight:800;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+margin-top:20px;
+font-size:clamp(1rem,2vw,1.3rem);
+max-width:700px;
+color:#ddd;
+}
+
+.image-placeholder{
+margin-top:40px;
+width:min(90%,500px);
+height:300px;
+border:2px dashed rgba(255,255,255,.5);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:2rem;
+backdrop-filter:blur(8px);
+background:rgba(255,255,255,.05);
+border-radius:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+nav{
+display:none;
+}
+
+.menu-btn{
+display:block;
+}
+
+.logo{
+font-size:1.3rem;
+}
+
+header{
+justify-content:flex-start;
+gap:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<header>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<div class="logo">
+AMD Creative Studio
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Contact Us</a>
+<a href="#">About Us</a>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Contact Us</a>
+<a href="#">About Us</a>
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>AMD Creative Studio</h1>
+
+<p>
+Professional Creative Design & Digital Media Studio
+</p>
+
+<div class="image-placeholder">
+IMAGE
+</div>
+
+</section>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>
