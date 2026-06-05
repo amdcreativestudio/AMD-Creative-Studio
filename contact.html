@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMD Creative Studio - Contact Us</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#000;color:#fff;overflow-x:hidden}
+
+.background{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:url('agsgdg.png') center center/cover no-repeat;
+z-index:-2;animation:fadeBackground 6s infinite ease-in-out;
+}
+.background::after{
+content:"";position:absolute;top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,.65);
+}
+@keyframes fadeBackground{0%{opacity:.5}50%{opacity:1}100%{opacity:.5}}
+
+header{
+position:fixed;top:0;left:0;width:100%;
+padding:18px 5%;
+display:flex;justify-content:space-between;align-items:center;
+background:rgba(0,0,0,.25);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-size:2rem;font-weight:700;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav{display:flex;gap:30px}
+nav a{text-decoration:none;color:#fff}
+nav a:hover{color:#00bfff}
+
+.banner{margin-top:80px}
+.banner img{width:100%;display:block}
+
+.section{padding:90px 8%}
+.section-title{
+text-align:center;
+font-size:2.4rem;
+margin-bottom:25px;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.section-text{
+text-align:center;
+max-width:800px;
+margin:auto;
+line-height:1.8;
+color:#d1d5db;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:18px;
+}
+
+.card h3{color:#00bfff;margin-bottom:10px}
+
+.btn{
+display:inline-block;
+padding:14px 30px;
+border-radius:50px;
+text-decoration:none;
+color:#fff;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+margin-top:25px;
+}
+
+.note{
+margin-top:40px;
+padding:25px;
+border-radius:18px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+text-align:center;
+color:#facc15;
+line-height:1.8;
+}
+
+.back-btn{
+display:block;
+width:fit-content;
+margin:60px auto 20px;
+padding:14px 30px;
+border-radius:50px;
+text-decoration:none;
+color:#fff;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+}
+
+footer{text-align:center;padding:30px;color:#d1d5db}
+
+@media(max-width:768px){
+nav{display:none}
+.logo{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<header>
+<div class="logo">AMD Creative Studio</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact Us</a>
+<a href="#">About Us</a>
+</nav>
+</header>
+
+<section class="banner">
+<img src="abcd.png" alt="Contact Banner">
+</section>
+
+<section class="section">
+<h1 class="section-title">Get In Touch</h1>
+<p class="section-text">Have a project in mind? Contact AMD Creative Studio and let's create something amazing together.</p>
+
+<div style="text-align:center">
+<a href="https://wa.me/94715445968" class="btn">Chat On WhatsApp</a>
+</div>
+
+<div class="contact-grid">
+<div class="card">
+<h3>Email Address</h3>
+<p>amdcreativestudio1@gmail.com</p>
+</div>
+
+<div class="card">
+<h3>Facebook Page</h3>
+<p>https://www.facebook.com/share/18w2RLP6Zk/</p>
+</div>
+
+<div class="card">
+<h3>Business Hours</h3>
+<p>24 Hours Available</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Payment Information</h2>
+
+<div class="contact-grid">
+<div class="card"><h3>Account Holder Name</h3><p>M.A.A.M.D. Munasinghe</p></div>
+<div class="card"><h3>Account Number</h3><p>96233026</p></div>
+<div class="card"><h3>Bank Name</h3><p>Bank Of Ceylon</p></div>
+<div class="card"><h3>Branch</h3><p>Weeraketiya</p></div>
+</div>
+
+<div class="note">
+<strong>Special Note</strong><br><br>
+After completing the payment, it is mandatory to send the payment receipt. If you used online banking, please send the transaction statement or payment confirmation screenshot through the chat.
+</div>
+</section>
+
+<a href="services.html" class="back-btn">← Back To Services</a>
+
+<footer>
+© 2026 AMD Creative Studio. All Rights Reserved.
+</footer>
+
+</body>
+</html>
