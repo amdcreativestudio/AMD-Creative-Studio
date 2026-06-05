@@ -205,13 +205,15 @@ Email Us
 
 <h3>Send Us A Message</h3>
 
-<form action="mailto:amdcreativestudio1@gmail.com" method="post" enctype="text/plain">
+<form id="contact-form">
 
-<input type="email" name="Customer Email" placeholder="Your Email Address" required>
+<input type="text" id="name" placeholder="Your Name" required>
 
-<input type="text" name="Subject" placeholder="Subject" required>
+<input type="email" id="email" placeholder="Your Email Address" required>
 
-<textarea name="Message" rows="6" placeholder="Type your message here..." required></textarea>
+<input type="text" id="subject" placeholder="Subject" required>
+
+<textarea id="message" rows="6" placeholder="Type your message here..." required></textarea>
 
 <button type="submit" class="btn">Send Message</button>
 
@@ -241,6 +243,37 @@ After completing the payment, it is mandatory to send the payment receipt. If yo
 <footer>
 © 2026 AMD Creative Studio. All Rights Reserved.
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+<script>
+emailjs.init("cwWgHsoDXHaCXoLzh");
+
+document.getElementById("contact-form").addEventListener("submit", function(event){
+
+event.preventDefault();
+
+emailjs.send("service_eju8gat","template_aj9tmud",{
+name: document.getElementById("name").value,
+email: document.getElementById("email").value,
+title: document.getElementById("subject").value,
+message: document.getElementById("message").value
+})
+.then(function(){
+
+alert("Message Sent Successfully!");
+
+document.getElementById("contact-form").reset();
+
+},
+function(error){
+
+alert("Failed To Send Message");
+
+console.log(error);
+
+});
+
+});
+</script>
 </body>
 </html>
