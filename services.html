@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMD Creative Studio - Services</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
+body{background:#000;color:#fff;overflow-x:hidden;}
+html{scroll-behavior:smooth;}
+
+header{
+position:fixed;top:0;left:0;width:100%;
+padding:18px 5%;
+display:flex;justify-content:space-between;align-items:center;
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-size:2rem;
+font-weight:700;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav{display:flex;gap:30px;}
+nav a{color:#fff;text-decoration:none;}
+nav a:hover{color:#00bfff;}
+
+.banner{
+margin-top:80px;
+width:100%;
+}
+
+.banner img{
+width:100%;
+display:block;
+object-fit:cover;
+}
+
+.hero{
+padding:70px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:clamp(2.5rem,6vw,5rem);
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+margin-top:15px;
+color:#d1d5db;
+}
+
+.section{
+padding:80px 8%;
+}
+
+.section h2{
+text-align:center;
+margin-bottom:40px;
+font-size:2.2rem;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+padding:25px;
+border-radius:18px;
+backdrop-filter:blur(10px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#00bfff;
+}
+
+.card ul{
+padding-left:20px;
+line-height:1.8;
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+text-align:center;
+}
+
+.step{
+padding:25px;
+background:rgba(255,255,255,.05);
+border-radius:15px;
+}
+
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.portfolio-box{
+height:220px;
+border:2px dashed rgba(255,255,255,.3);
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:15px;
+}
+
+.cta{
+padding:100px 20px;
+text-align:center;
+}
+
+.cta h2{
+font-size:2.5rem;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.cta p{
+margin-top:20px;
+color:#d1d5db;
+}
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 30px;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+color:#fff;
+text-decoration:none;
+border-radius:50px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#d1d5db;
+}
+
+@media(max-width:768px){
+nav{display:none;}
+.logo{font-size:1.3rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">AMD Creative Studio</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="#">Contact Us</a>
+<a href="#">About Us</a>
+</nav>
+</header>
+
+<section class="banner">
+<img src="BANNER_IMAGE.png" alt="Banner">
+</section>
+
+<section class="hero">
+<h1>Our Services</h1>
+<p>Professional Creative Solutions For Your Brand</p>
+</section>
+
+<section class="section">
+<h2>Our Services</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Graphic Design</h3>
+<ul>
+<li>Posters</li>
+<li>Banners</li>
+<li>Flyers</li>
+<li>Business Cards</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Logo Design</h3>
+<ul>
+<li>Modern Logos</li>
+<li>Brand Identity</li>
+<li>Business Logos</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Video Editing</h3>
+<ul>
+<li>Reels</li>
+<li>Shorts</li>
+<li>YouTube Videos</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Social Media Designs</h3>
+<ul>
+<li>Facebook Posts</li>
+<li>Instagram Posts</li>
+<li>Story Designs</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Thumbnail Design</h3>
+<ul>
+<li>Gaming Thumbnails</li>
+<li>YouTube Thumbnails</li>
+<li>Promotional Thumbnails</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>AI Content Creation</h3>
+<ul>
+<li>AI Images</li>
+<li>AI Videos</li>
+<li>Creative Concepts</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>Why Choose Us</h2>
+<div class="grid">
+<div class="card"><h3>⚡ Fast Delivery</h3></div>
+<div class="card"><h3>♾ Unlimited Revisions</h3></div>
+<div class="card"><h3>🎯 Professional Quality</h3></div>
+<div class="card"><h3>💬 Friendly Support</h3></div>
+</div>
+</section>
+
+<section class="section">
+<h2>How It Works</h2>
+<div class="steps">
+<div class="step">1. Select a Service</div>
+<div class="step">2. Send Requirements</div>
+<div class="step">3. Review Design</div>
+<div class="step">4. Receive Final Files</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Our Recent Work</h2>
+<div class="portfolio">
+<div class="portfolio-box">IMAGE 1</div>
+<div class="portfolio-box">IMAGE 2</div>
+<div class="portfolio-box">IMAGE 3</div>
+<div class="portfolio-box">IMAGE 4</div>
+<div class="portfolio-box">IMAGE 5</div>
+<div class="portfolio-box">IMAGE 6</div>
+</div>
+</section>
+
+<section class="cta">
+<h2>Ready To Start Your Project?</h2>
+<p>Let's Bring Your Ideas To Life</p>
+<a href="#" class="btn">Contact Us</a>
+</section>
+
+<footer>
+© 2026 AMD Creative Studio. All Rights Reserved.
+</footer>
+
+</body>
+</html>
