@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="abcde.png">
+<link rel="icon" type="image/png" href="abcde.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -26,8 +27,6 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
-
 .background{
 position:fixed;
 top:0;
@@ -47,16 +46,13 @@ left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0.65);
-z-index:-1;
 }
 
 @keyframes fadeBackground{
-0%{opacity:0.5;}
+0%{opacity:.5;}
 50%{opacity:1;}
-100%{opacity:0.5;}
+100%{opacity:.5;}
 }
-
-/* HEADER */
 
 header{
 position:fixed;
@@ -68,7 +64,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 backdrop-filter:blur(12px);
-background:rgba(0,0,0,0.25);
+background:rgba(0,0,0,.25);
 z-index:1000;
 }
 
@@ -88,15 +84,12 @@ gap:35px;
 nav a{
 color:white;
 text-decoration:none;
-font-size:1rem;
 transition:.3s;
 }
 
 nav a:hover{
 color:#00bfff;
 }
-
-/* MOBILE MENU BUTTON */
 
 .menu-btn{
 display:none;
@@ -106,8 +99,6 @@ border:none;
 color:white;
 cursor:pointer;
 }
-
-/* MOBILE MENU */
 
 .mobile-menu{
 display:none;
@@ -129,8 +120,6 @@ border-bottom:1px solid #222;
 .mobile-menu.show{
 display:flex;
 }
-
-/* HERO */
 
 .hero{
 min-height:100vh;
@@ -156,124 +145,7 @@ font-size:clamp(1rem,2vw,1.3rem);
 max-width:700px;
 color:#ddd;
 }
-  <!-- WHAT WE DO SECTION -->
 
-<section id="what-we-do">
-
-    <div class="container">
-
-        <h2>What We Do</h2>
-
-        <p>
-            We create high-quality graphic designs tailored to your exact needs.
-            From social media posts and business branding to promotional materials
-            and custom creative projects, we bring your ideas to life with
-            professional design solutions.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- LOGO SECTION -->
-
-<section id="logo-section">
-
-    <img src="abcde.png" alt="AMD Creative Studio Logo">
-
-</section>
-
-<!-- FAQ SECTION -->
-
-<section id="faq">
-
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-        <h3>What graphic design services do you offer?</h3>
-        <p>We provide social media designs, posters, banners, logos, branding materials, thumbnails, and custom graphic design solutions.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Can I request a completely custom design?</h3>
-        <p>Yes. Every design can be customized according to your requirements and preferences.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>How long does it take to complete an order?</h3>
-        <p>Delivery time depends on the project, but most orders are completed within a few days.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Do you offer revisions?</h3>
-        <p>Yes. We provide revisions to ensure the final design meets your expectations.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>What file formats will I receive?</h3>
-        <p>We can provide PNG, JPG, PDF, PSD, AI, and other formats upon request.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>How can I place an order?</h3>
-        <p>Simply visit our Services page and choose the service you need.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Can you create designs for businesses and brands?</h3>
-        <p>Absolutely. We create professional designs for businesses, personal brands, and organizations.</p>
-    </div>
-
-</section>
-
-<!-- ORDER CTA -->
-
-<section id="order-cta">
-
-    <h2>Need a Custom Design?</h2>
-
-    <p>
-        Visit our Services page to place an order and let us bring your ideas to life.
-    </p>
-
-</section>
-
-.image-placeholder{
-margin-top:40px;
-width:min(90%,500px);
-height:300px;
-border:2px dashed rgba(255,255,255,.5);
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:2rem;
-backdrop-filter:blur(8px);
-background:rgba(255,255,255,.05);
-border-radius:20px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-nav{
-display:none;
-}
-
-.menu-btn{
-display:block;
-}
-
-.logo{
-font-size:1.3rem;
-}
-
-header{
-justify-content:flex-start;
-gap:20px;
-}
-
-}
 /* WHAT WE DO */
 
 #what-we-do{
@@ -292,7 +164,6 @@ background:linear-gradient(90deg,#8a2be2,#00bfff);
 max-width:700px;
 line-height:1.8;
 color:#d1d5db;
-font-size:1.05rem;
 }
 
 /* LOGO */
@@ -318,34 +189,28 @@ padding:100px 8%;
 text-align:center;
 margin-bottom:50px;
 font-size:2.3rem;
-
 background:linear-gradient(90deg,#8a2be2,#00bfff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .faq-item{
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,.05);
 backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,0.1);
-
+border:1px solid rgba(255,255,255,.1);
 padding:25px;
 border-radius:15px;
-
 margin-bottom:20px;
 }
 
 .faq-item h3{
 margin-bottom:10px;
-color:#ffffff;
 }
 
 .faq-item p{
 color:#d1d5db;
 line-height:1.7;
 }
-
-/* CTA */
 
 #order-cta{
 padding:120px 20px;
@@ -354,7 +219,6 @@ text-align:center;
 
 #order-cta h2{
 font-size:2.5rem;
-
 background:linear-gradient(90deg,#8a2be2,#00bfff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -363,26 +227,36 @@ background:linear-gradient(90deg,#8a2be2,#00bfff);
 #order-cta p{
 margin-top:20px;
 color:#d1d5db;
-font-size:1.1rem;
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
+
+nav{
+display:none;
+}
+
+.menu-btn{
+display:block;
+}
+
+.logo{
+font-size:1.3rem;
+}
+
+header{
+justify-content:flex-start;
+gap:20px;
+}
 
 #what-we-do,
 #faq{
 padding:70px 6%;
 }
 
-#what-we-do h2,
-#faq h2,
-#order-cta h2{
-font-size:1.8rem;
 }
 
-}
 </style>
+
 </head>
 
 <body>
@@ -393,9 +267,7 @@ font-size:1.8rem;
 
 <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<div class="logo">
-AMD Creative Studio
-</div>
+<div class="logo">AMD Creative Studio</div>
 
 <nav>
 <a href="#">Home</a>
@@ -421,7 +293,86 @@ AMD Creative Studio
 Professional Creative Design & Digital Media Studio
 </p>
 
+</section>
+<section id="what-we-do">
 
+```
+<div class="container">
+
+    <h2>What We Do</h2>
+
+    <p>
+        We create high-quality graphic designs tailored to your exact needs.
+        From social media posts and business branding to promotional materials,
+        custom artwork, and creative marketing materials, we bring your ideas
+        to life with professional design solutions that stand out.
+    </p>
+
+</div>
+```
+
+</section>
+
+<section id="logo-section">
+
+```
+<img src="abcde.png" alt="AMD Creative Studio Logo">
+```
+
+</section>
+
+<section id="faq">
+
+```
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+    <h3>What graphic design services do you offer?</h3>
+    <p>We provide logos, banners, social media posts, thumbnails, posters, branding materials, and custom graphic design solutions.</p>
+</div>
+
+<div class="faq-item">
+    <h3>Can I request a custom design?</h3>
+    <p>Yes. Every design is created according to your specific requirements and preferences.</p>
+</div>
+
+<div class="faq-item">
+    <h3>How long does it take to complete an order?</h3>
+    <p>Delivery time depends on the complexity of the project, but most orders are completed within a few days.</p>
+</div>
+
+<div class="faq-item">
+    <h3>Do you offer revisions?</h3>
+    <p>Yes. We provide revisions to ensure you are fully satisfied with the final result.</p>
+</div>
+
+<div class="faq-item">
+    <h3>What file formats do you provide?</h3>
+    <p>We can provide PNG, JPG, PDF, PSD, AI, and other formats when requested.</p>
+</div>
+
+<div class="faq-item">
+    <h3>How can I place an order?</h3>
+    <p>You can place an order through our Services page and select the service you need.</p>
+</div>
+
+<div class="faq-item">
+    <h3>Do you work with businesses and brands?</h3>
+    <p>Absolutely. We help businesses, startups, personal brands, and organizations create professional visual content.</p>
+</div>
+```
+
+</section>
+
+<section id="order-cta">
+
+```
+<h2>Need a Custom Design?</h2>
+
+<p>
+    To place an order, please visit our Services page and choose the service that best fits your needs.
+</p>
+```
 
 </section>
 
