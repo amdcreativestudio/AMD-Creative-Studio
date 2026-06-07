@@ -231,6 +231,40 @@ body{
 
 .gradient-title{
     font-size:32px;
+  .menu-toggle{
+    display:none;
+    font-size:30px;
+    color:white;
+    cursor:pointer;
+}
+
+@media (max-width:768px){
+
+    .menu-toggle{
+        display:block;
+        position:fixed;
+        top:20px;
+        right:20px;
+        z-index:1001;
+    }
+
+    .navbar{
+        display:none;
+        flex-direction:column;
+        position:fixed;
+        top:70px;
+        right:20px;
+        background:rgba(10,10,20,0.95);
+        padding:20px;
+        border-radius:15px;
+        gap:15px;
+        z-index:1000;
+    }
+
+    .navbar.active{
+        display:flex;
+    }
+}
 }
 
 .chat-card{
@@ -255,6 +289,9 @@ footer{
 </style>
 </head>
 <body>
+  <div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
 <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="index.html#services">Services</a>
@@ -362,6 +399,11 @@ Terms & Conditions
 </a>
 </p>
 </footer>
+  <script>
+function toggleMenu(){
+    document.getElementById("navbar").classList.toggle("active");
+}
+</script>
 </body>
    
 
