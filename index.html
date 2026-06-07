@@ -319,7 +319,66 @@ header{justify-content:flex-start;gap:20px;}
     transform:translateY(-4px);
     box-shadow:0 0 15px rgba(138,43,226,0.5);
 }
- 
+ .showcase-video{
+    text-align:center;
+    padding:60px 20px;
+    position:relative;
+}
+
+.showcase-video h2{
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:25px;
+    background:linear-gradient(90deg,#9c27ff,#00a2ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.video-container{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    border-radius:25px;
+    overflow:hidden;
+    position:relative;
+    
+    /* Blue Glow */
+    box-shadow:
+        0 0 20px rgba(0,140,255,.4),
+        0 0 40px rgba(0,140,255,.25),
+        0 0 70px rgba(0,140,255,.15);
+
+    transition:all .4s ease;
+}
+
+.video-container::before{
+    content:'';
+    position:absolute;
+    inset:-20px;
+    background:rgba(0,140,255,.15);
+    filter:blur(40px);
+    z-index:-1;
+    opacity:0;
+    transition:.4s;
+}
+
+.video-container:hover{
+    transform:translateY(-5px);
+    box-shadow:
+        0 0 30px rgba(0,140,255,.6),
+        0 0 60px rgba(0,140,255,.35),
+        0 0 90px rgba(0,140,255,.2);
+}
+
+.video-container:hover::before{
+    opacity:1;
+}
+
+.video-container video{
+    width:100%;
+    display:block;
+    border-radius:25px;
+}
 </style>
 </head>
 <body>
@@ -367,7 +426,15 @@ AMD Creative Studios provides professional graphic design, logo design, video ed
 <h2>What We Do</h2>
 <p><b>We create high-quality graphic designs tailored to your exact needs. From social media posts and business branding to promotional materials, custom artwork, and creative marketing materials, we bring your ideas to life.</b></p>
 </section>
+<section class="showcase-video">
+    <h2>For Any Video</h2>
 
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="dfhjjffd.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
 <section id="faq">
 <h2>Frequently Asked Questions</h2>
 <div class="faq-item"> <h3>What graphic design services do you offer?</h3> <p>We provide logos, banners, social media posts, thumbnails, posters, branding materials, and custom graphic design solutions.</p> </div> 
