@@ -321,7 +321,17 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script>
+var Tawk_API = Tawk_API || {};
 
+Tawk_API.onLoad = function () {
+    Tawk_API.hideWidget(); // bubble එක hide කරනවා
+};
+
+document.getElementById("openChat").addEventListener("click", function () {
+    Tawk_API.maximize(); // Chat Now click කරාම chat open වෙනවා
+});
+</script>
 <script>
 
 document.getElementById("openChat").addEventListener("click",function(){
