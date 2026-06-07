@@ -1,0 +1,254 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Messages | AMD Creative Studios</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#050816,#0a1028,#090d1f);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    overflow-x:hidden;
+}
+
+.container{
+    width:100%;
+    max-width:850px;
+}
+
+.chat-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(0,140,255,0.12);
+}
+
+.logo{
+    font-size:18px;
+    color:#fff;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.gradient-title{
+    font-size:42px;
+    font-weight:800;
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#8a2be2,#00bfff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    color:#d8d8d8;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    background:rgba(0,255,120,0.12);
+    border:1px solid rgba(0,255,120,0.25);
+
+    color:#7dffb0;
+
+    padding:10px 18px;
+    border-radius:30px;
+
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#00ff66;
+
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{opacity:1;}
+    50%{opacity:.3;}
+    100%{opacity:1;}
+}
+
+.rules-box{
+    text-align:left;
+
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:18px;
+
+    padding:25px;
+    margin-bottom:30px;
+}
+
+.rules-box h3{
+    color:#fff;
+    margin-bottom:15px;
+}
+
+.rules-box ul{
+    color:#d7d7d7;
+    line-height:2;
+    padding-left:18px;
+}
+
+.typing{
+    color:#8fd7ff;
+    margin-bottom:25px;
+    font-size:16px;
+}
+
+.typing::after{
+    content:"";
+    animation:dots 1.5s infinite;
+}
+
+@keyframes dots{
+    0%{content:"";}
+    25%{content:".";}
+    50%{content:"..";}
+    75%{content:"...";}
+    100%{content:"";}
+}
+
+.chat-btn{
+    border:none;
+    cursor:pointer;
+
+    padding:16px 38px;
+
+    font-size:18px;
+    font-weight:700;
+
+    color:white;
+
+    border-radius:40px;
+
+    background:linear-gradient(90deg,#8a2be2,#00bfff);
+
+    transition:.3s;
+}
+
+.chat-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(0,191,255,.35);
+}
+
+.footer-note{
+    color:#999;
+    font-size:13px;
+    margin-top:25px;
+}
+
+@media(max-width:768px){
+
+.gradient-title{
+    font-size:32px;
+}
+
+.chat-card{
+    padding:25px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="chat-card">
+
+        <div class="logo">
+            AMD CREATIVE STUDIOS
+        </div>
+
+        <h1 class="gradient-title">
+            Secure Live Chat
+        </h1>
+
+        <p class="subtitle">
+            Welcome to AMD Creative Studios Live Support.
+            Talk directly with our team regarding graphic design,
+            video editing, thumbnails, branding, and other creative services.
+        </p>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Support Team Online
+        </div>
+
+        <div class="rules-box">
+
+            <h3>Chat Guidelines</h3>
+
+            <ul>
+                <li>No spam or advertising.</li>
+                <li>No abusive or offensive language.</li>
+                <li>No illegal requests or harmful content.</li>
+                <li>Respect our support team.</li>
+                <li>Only discuss services related to AMD Creative Studios.</li>
+            </ul>
+
+        </div>
+
+        <div class="typing">
+            AMD Creative Studios Support is ready to assist you
+        </div>
+
+        <button id="openChat" class="chat-btn">
+            💬 Chat Now
+        </button>
+
+        <div class="footer-note">
+            Fast Response • Secure Communication • Professional Support
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PASTE YOUR TAWK.TO SCRIPT HERE -->
+
+<script>
+
+document.getElementById("openChat").addEventListener("click",function(){
+
+    if(typeof Tawk_API !== "undefined"){
+        Tawk_API.maximize();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+```
