@@ -346,7 +346,8 @@ document.getElementById("openChat").addEventListener("click", function() {
 document.getElementById("openChat").addEventListener("click",function(){
 
     if(typeof Tawk_API !== "undefined"){
-        Tawk_API.maximize();
+        Tawk_API.showWidget();
+      Tawk_API.maximize();
     }
 
 });
