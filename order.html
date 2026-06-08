@@ -7,7 +7,13 @@
 <title>Order Now | AMD Creative Studios</title>
 
 <link rel="icon" type="image/png" href="abcde.png">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+<script>
+(function(){
+emailjs.init("cwWgHsoDXHaCXoLzh");
+})();
+</script>
 <style>
 
 *{
@@ -294,8 +300,7 @@ If you choose Bank Transfer, you must send a clear screenshot/photo of your paym
 </p>
 
 </div>
-
-<form action="https://formsubmit.co/amdcreativestudio1@gmail.com" method="POST">
+<form id="orderForm">
 
 <input type="hidden" name="_subject" value="New AMD Creative Studios Order">
 
@@ -524,6 +529,33 @@ document.querySelectorAll('input[name="Payment Method"]').forEach(radio => {
 
 });
 
+</script>
+
+    <script>
+document.getElementById("orderForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+emailjs.sendForm(
+"service_eju8gat",
+"template_p5okqev",
+this
+)
+.then(function(){
+
+alert("Order submitted successfully!");
+
+window.location.href="messages.html";
+
+})
+.catch(function(error){
+
+alert("Failed to send order");
+console.log(error);
+
+});
+
+});
 </script>
 </body>
 </html>
