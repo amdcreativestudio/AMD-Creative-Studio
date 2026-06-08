@@ -15,7 +15,27 @@ emailjs.init("cwWgHsoDXHaCXoLzh");
 })();
 </script>
 <style>
+.back-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    padding:10px 18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
 
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+
+    color:white;
+    font-weight:bold;
+
+    border:1px solid rgba(255,255,255,0.15);
+}
+
+.back-btn:hover{
+    transform:scale(1.05);
+}
 *{
     margin:0;
     padding:0;
@@ -262,7 +282,9 @@ select option{
 </head>
 
 <body>
-
+<button class="back-btn" onclick="history.back()">
+← Back
+</button>
 <div class="order-card">
 
 <h1 class="gradient-title">Place Your Order</h1>
