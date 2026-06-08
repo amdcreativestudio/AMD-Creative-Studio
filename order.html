@@ -278,6 +278,30 @@ select option{
     background:#1a1f35;
     color:white;
 }
+    .service-row{
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+#serviceType{
+    flex:1;
+}
+
+#quantity{
+    width:120px;
+}
+
+#totalPrice{
+    color:#FFD700;
+    font-weight:700;
+    margin-top:10px;
+    text-shadow:0 0 10px rgba(255,215,0,0.5);
+}
+
+#budget{
+    cursor:not-allowed;
+}
 </style>
 </head>
 
@@ -343,17 +367,41 @@ If you choose Bank Transfer, you must send a clear screenshot/photo of your paym
     <option value="India" data-currency="INR">India</option>
 </select>
 
-<select name="Service Type" required>
-<option value="">Select Service</option>
-<option>Logo Design</option>
-<option>YouTube Thumbnail Design</option>
-<option>Video Editing</option>
-<option>Photo Editing</option>
-<option>Social Media Design</option>
-<option>Branding Package</option>
-<option>Custom Graphic Design</option>
+<div class="service-row">
+
+<select name="Service Type" id="serviceType" required>
+    <option value="">Select Service</option>
+    <option value="15">Graphic Design</option>
+    <option value="15">Logo Design</option>
+    <option value="30">Video Editing</option>
+    <option value="10">Social Media Design</option>
+    <option value="5">Thumbnail Design</option>
+    <option value="15">AI Content Creation</option>
 </select>
 
+<select id="quantity" name="Quantity">
+    <option value="1">Qty 1</option>
+    <option value="2">Qty 2</option>
+    <option value="3">Qty 3</option>
+    <option value="4">Qty 4</option>
+    <option value="5">Qty 5</option>
+</select>
+
+</div>
+
+<div class="budget-wrapper">
+    <span id="currencySign">$</span>
+
+    <input
+        type="number"
+        id="budget"
+        name="budget"
+        placeholder="Budget"
+        readonly
+    >
+</div>
+
+<p id="totalPrice">Total Price: $0</p>
 <div class="budget-wrapper">
     <span id="currencySign">$</span>
     <input type="number"
@@ -459,26 +507,7 @@ After submitting your order, please continue the discussion through our Live Cha
 </button>
 </div>
 <script>
-const country = document.getElementById("country");
-const currencySign = document.getElementById("currencySign");
-
-country.addEventListener("change", function(){
-
-    const selected = this.options[this.selectedIndex];
-    const currency = selected.dataset.currency;
-
-    const symbols = {
-        USD: "$",
-        LKR: "Rs",
-        GBP: "£",
-        EUR: "€",
-        AUD: "A$",
-        CAD: "C$",
-        INR: "₹"
-    };
-
-    currencySign.textContent = symbols[currency] || "$";
-});
+<span id="currencySign">$</span>
 </script>
     <script>
 
@@ -578,6 +607,34 @@ console.log(error);
 });
 
 });
+        const serviceType = document.getElementById("serviceType");
+const quantity = document.getElementById("quantity");
+const budget = document.getElementById("budget");
+const totalPrice = document.getElementById("totalPrice");
+
+function updateBudget(){
+
+    const servicePrice = Number(serviceType.value || 0);
+    const qty = Number(quantity.value || 1);
+
+    const total = servicePrice * qty;
+
+    budget.value = total;
+
+    totalPrice.textContent =
+        "Total Price: $" + total;
+}
+
+serviceType.addEventListener(
+    "change",
+    updateBudget
+);
+
+quantity.addEventListener(
+    "change",
+    updateBudget
+);
 </script>
+    
 </body>
 </html>
