@@ -329,21 +329,12 @@ Before placing an order, please make sure you have already discussed your projec
 When making a PayPal payment, you must enter the exact amount agreed during the discussion. Payments that are lower or higher than the agreed amount may be refunded.
 </p>
 
-<p>
-🏦 <strong>Bank Transfer (Sri Lanka Clients Only):</strong><br>
-If you choose Bank Transfer, you must send a clear screenshot/photo of your payment receipt or online banking confirmation immediately after placing your order.
-</p>
 
-<p>
-📩 Payment proof must be sent through:
-<br>• AMD Live Chat
-<br>• Facebook Messenger
-</p>
 
-<p>
-⚠️ Orders without payment confirmation may not be processed until payment verification is completed.
-</p>
 
+
+💳 <strong>PayPal Payments:</strong><br>
+When making a PayPal payment, please enter the exact amount agreed during the discussion. Payments that are lower or higher than the agreed amount may be refunded.
 </div>
 <form id="orderForm">
 
@@ -413,7 +404,26 @@ required></textarea>
 
 <div class="payment-box">
 
-<h3 class="section-title">Payment Method</h3>
+
+    <h3 class="section-title">Payment Method</h3>
+
+<label>
+    <input type="radio" name="Payment Method"
+           value="PayPal" checked>
+    PayPal
+</label>
+
+<div id="paypalBox">
+
+    <h3 class="section-title">PayPal Payment</h3>
+
+    <p>
+        Click below to complete your payment securely using PayPal.
+    </p>
+
+    <div id="paypal-button-container"></div>
+
+</div>
 
 <label>
 <input type="radio" name="Payment Method" value="PayPal" required>
