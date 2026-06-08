@@ -171,7 +171,22 @@ textarea{
     }
 
 }
+.budget-wrapper{
+    position:relative;
+}
 
+#currencySign{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+    font-weight:bold;
+}
+
+#budget{
+    padding-left:40px;
+}
 </style>
 </head>
 
@@ -198,8 +213,15 @@ Complete the form below to officially start your project with AMD Creative Studi
 <input type="email" name="Email Address" placeholder="Email Address" required>
 
 <input type="text" name="WhatsApp Number" placeholder="WhatsApp Number" required>
-
-<input type="text" name="Country" placeholder="Country" required>
+<select id="country" name="country" required>
+    <option value="">Select Country</option>
+    <option value="Sri Lanka" data-currency="LKR">Sri Lanka</option>
+    <option value="United States" data-currency="USD">United States</option>
+    <option value="United Kingdom" data-currency="GBP">United Kingdom</option>
+    <option value="Australia" data-currency="AUD">Australia</option>
+    <option value="Canada" data-currency="CAD">Canada</option>
+    <option value="India" data-currency="INR">India</option>
+</select>
 
 <select name="Service Type" required>
 <option value="">Select Service</option>
@@ -212,7 +234,10 @@ Complete the form below to officially start your project with AMD Creative Studi
 <option>Custom Graphic Design</option>
 </select>
 
-<input type="text" name="Budget" placeholder="Budget">
+<div class="budget-wrapper">
+    <span id="currencySign">$</span>
+    <input type="number" id="budget" name="budget" placeholder="Budget">
+</div>
 
 <input type="text" name="Deadline" placeholder="Deadline (Optional)">
 
@@ -263,6 +288,27 @@ After submitting your order, please continue the discussion through our Live Cha
 </p>
 
 </div>
+<script>
+const country = document.getElementById("country");
+const currencySign = document.getElementById("currencySign");
 
+country.addEventListener("change", function(){
+
+    const selected = this.options[this.selectedIndex];
+    const currency = selected.dataset.currency;
+
+    const symbols = {
+        USD: "$",
+        LKR: "Rs",
+        GBP: "£",
+        EUR: "€",
+        AUD: "A$",
+        CAD: "C$",
+        INR: "₹"
+    };
+
+    currencySign.textContent = symbols[currency] || "$";
+});
+</script>
 </body>
 </html>
