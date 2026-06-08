@@ -277,10 +277,12 @@ required></textarea>
 
 
 
-<label>
-<input type="radio" name="Payment Method" value="Bank Transfer">
- Bank Transfer
-</label>
+<div id="bankTransferOption">
+    <label>
+        <input type="radio" name="Payment Method" value="Bank Transfer">
+        Bank Transfer
+    </label>
+</div>
 
 </div>
 <div id="paypalBox" style="display:none;margin-top:20px;">
@@ -374,6 +376,20 @@ paypalBox.style.display = "none";
 
 });
 
+</script>
+    <script>
+const countrySelect = document.getElementById("country");
+const bankOption = document.getElementById("bankTransferOption");
+
+countrySelect.addEventListener("change", function(){
+
+    if(this.value === "Sri Lanka"){
+        bankOption.style.display = "block";
+    } else {
+        bankOption.style.display = "none";
+    }
+
+});
 </script>
 </body>
 </html>
