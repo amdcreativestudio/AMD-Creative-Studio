@@ -429,28 +429,27 @@ countrySelect.addEventListener("change", function() {
 });
 </script>
 
-    <script>
-const paypalRadio =
-document.querySelector('input[value="PayPal"]');
+ <script>
 
-const bankRadio =
-document.querySelector('input[value="Bank Transfer"]');
+document.querySelectorAll('input[name="Payment Method"]').forEach(radio => {
 
-const paypalBox =
-document.getElementById("paypalBox");
+    radio.addEventListener("change", function(){
 
-const bankBox =
-document.getElementById("bankBox");
+        document.getElementById("paypalBox").style.display = "none";
+        document.getElementById("bankBox").style.display = "none";
 
-paypalRadio.addEventListener("change", function(){
-    paypalBox.style.display = "block";
-    bankBox.style.display = "none";
+        if(this.value === "PayPal"){
+            document.getElementById("paypalBox").style.display = "block";
+        }
+
+        if(this.value === "Bank Transfer"){
+            document.getElementById("bankBox").style.display = "block";
+        }
+
+    });
+
 });
 
-bankRadio.addEventListener("change", function(){
-    bankBox.style.display = "block";
-    paypalBox.style.display = "none";
-});
 </script>
 </body>
 </html>
