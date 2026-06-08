@@ -595,6 +595,12 @@ quantity.addEventListener(
 </script>
     <script>
 paypal.Buttons({
+    style: {
+        color: 'black',
+        shape: 'pill',
+        layout: 'vertical',
+        label: 'paypal'
+    },
     createOrder: function(data, actions) {
         let amount = document.getElementById("budget").value || "1";
 
