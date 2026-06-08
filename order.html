@@ -288,6 +288,38 @@ required></textarea>
 </div>
 
 </div>
+    <div id="bankBox" style="display:none;margin-top:20px;">
+
+    <h3 class="section-title">Bank Transfer Details</h3>
+
+    <p style="color:#ffcc66;font-weight:bold;">
+        ⚠️ IMPORTANT: After completing your payment, you MUST send a screenshot/photo of the payment receipt through AMD Live Chat or Facebook Messenger. Orders without payment proof will not be processed.
+    </p>
+
+    <div class="payment-box">
+
+        <p><strong>Bank Name:</strong> Bank of Ceylon</p>
+
+        <p><strong>Account Name:</strong> AMD Creative Studios</p>
+
+        <p><strong>Account Number:</strong> XXXXXXXXXX</p>
+
+        <p><strong>Branch Name:</strong> XXXXX Branch</p>
+
+        <p><strong>SWIFT Code:</strong> XXXXXXXX (Foreign Transfers Only)</p>
+
+    </div>
+
+    <p style="margin-top:15px;">
+        ✅ After payment, please send your receipt via:
+    </p>
+
+    <ul>
+        <li>AMD Live Chat</li>
+        <li>Facebook Messenger</li>
+    </ul>
+
+</div>
 <div id="paypalBox" style="display:none;margin-top:20px;">
 
     <h3 class="section-title">PayPal Payment</h3>
@@ -394,6 +426,30 @@ countrySelect.addEventListener("change", function() {
         bankOption.style.display = "none";
     }
 
+});
+</script>
+
+    <script>
+const paypalRadio =
+document.querySelector('input[value="PayPal"]');
+
+const bankRadio =
+document.querySelector('input[value="Bank Transfer"]');
+
+const paypalBox =
+document.getElementById("paypalBox");
+
+const bankBox =
+document.getElementById("bankBox");
+
+paypalRadio.addEventListener("change", function(){
+    paypalBox.style.display = "block";
+    bankBox.style.display = "none";
+});
+
+bankRadio.addEventListener("change", function(){
+    bankBox.style.display = "block";
+    paypalBox.style.display = "none";
 });
 </script>
 </body>
