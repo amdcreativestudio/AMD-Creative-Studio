@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order Now | AMD Creative Studios</title>
+
+<link rel="icon" type="image/png" href="abcde.png">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(5,8,22,.82),rgba(5,8,22,.82)),
+    url('bgff.jpeg');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:30px;
+}
+
+.order-card{
+    width:100%;
+    max-width:850px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:0 0 30px rgba(0,162,255,.18);
+}
+
+.gradient-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:15px;
+
+    background:linear-gradient(90deg,#00bfff,#8a2be2);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    text-align:center;
+    color:#ccc;
+    margin-bottom:35px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:14px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.10);
+    color:#fff;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#ccc;
+}
+
+textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+.section-title{
+    font-size:20px;
+    margin-top:10px;
+    margin-bottom:5px;
+    color:#00bfff;
+}
+
+.payment-box{
+    background:rgba(255,255,255,.06);
+    padding:20px;
+    border-radius:15px;
+}
+
+.payment-box label{
+    display:block;
+    margin:10px 0;
+}
+
+.checkbox{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    margin-top:10px;
+}
+
+.checkbox input{
+    width:auto;
+    margin-top:4px;
+}
+
+.submit-btn{
+    border:none;
+    cursor:pointer;
+
+    padding:16px;
+
+    border-radius:50px;
+
+    font-size:17px;
+    font-weight:bold;
+
+    background:linear-gradient(90deg,#00bfff,#8a2be2);
+
+    color:white;
+
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    transform:scale(1.03);
+}
+
+.notice{
+    text-align:center;
+    color:#aaa;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+@media(max-width:768px){
+
+    .order-card{
+        padding:25px;
+    }
+
+    .gradient-title{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="order-card">
+
+<h1 class="gradient-title">Place Your Order</h1>
+
+<p class="subtitle">
+Complete the form below to officially start your project with AMD Creative Studios.
+</p>
+
+<form action="https://formsubmit.co/amdcreativestudio1@gmail.com" method="POST">
+
+<input type="hidden" name="_subject" value="New AMD Creative Studios Order">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="hidden" name="_next" value="https://amdcreativestudios.com/messages.html">
+
+<input type="text" name="Full Name" placeholder="Full Name" required>
+
+<input type="email" name="Email Address" placeholder="Email Address" required>
+
+<input type="text" name="WhatsApp Number" placeholder="WhatsApp Number" required>
+
+<input type="text" name="Country" placeholder="Country" required>
+
+<select name="Service Type" required>
+<option value="">Select Service</option>
+<option>Logo Design</option>
+<option>YouTube Thumbnail Design</option>
+<option>Video Editing</option>
+<option>Photo Editing</option>
+<option>Social Media Design</option>
+<option>Branding Package</option>
+<option>Custom Graphic Design</option>
+</select>
+
+<input type="text" name="Budget" placeholder="Budget">
+
+<input type="text" name="Deadline" placeholder="Deadline (Optional)">
+
+<textarea
+name="Project Details"
+placeholder="Describe your project in detail..."
+required></textarea>
+
+<div class="payment-box">
+
+<h3 class="section-title">Payment Method</h3>
+
+<label>
+<input type="radio" name="Payment Method" value="PayPal" required>
+ PayPal
+</label>
+
+<label>
+<input type="radio" name="Payment Method" value="Payoneer">
+ Payoneer
+</label>
+
+<label>
+<input type="radio" name="Payment Method" value="Bank Transfer">
+ Bank Transfer
+</label>
+
+</div>
+
+<div class="checkbox">
+
+<input type="checkbox" required>
+
+<p>
+I confirm that I have already discussed the project details and pricing with AMD Creative Studios via Live Chat.
+</p>
+
+</div>
+
+<button type="submit" class="submit-btn">
+🚀 Place Order
+</button>
+
+</form>
+
+<p class="notice">
+After submitting your order, please continue the discussion through our Live Chat system for payment instructions and project updates.
+</p>
+
+</div>
+
+</body>
+</html>
