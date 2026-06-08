@@ -16,9 +16,7 @@ emailjs.init("cwWgHsoDXHaCXoLzh");
 </script>
 <style>
 .back-btn{
-    position:fixed;
-    top:20px;
-    left:20px;
+  
     padding:10px 18px;
     border:none;
     border-radius:30px;
@@ -328,8 +326,12 @@ select option{
 }
 
 .confirmation-box{
-    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
     margin-top:20px;
+    text-align:center;
 }
 
 .place-order-btn{
@@ -385,9 +387,7 @@ When making a PayPal payment, you must enter the exact amount agreed during the 
 
 
 
-💳 <strong>PayPal Payments:</strong><br>
-When making a PayPal payment, please enter the exact amount agreed during the discussion. Payments that are lower or higher than the agreed amount may be refunded.
-</div>
+    </div>
 <form id="orderForm">
 
 <input type="hidden" name="_subject" value="New AMD Creative Studios Order">
@@ -475,18 +475,7 @@ required></textarea>
 
     <div id="paypal-button-container"></div>
 
-</div>
 
-<label>
-<input type="radio" name="Payment Method" value="PayPal" required>
- PayPal
-</label>
-
-
-
-
-</div>
- 
 
     <p style="margin-top:15px;">
         ✅ After payment, please send your receipt via:
@@ -507,7 +496,7 @@ required></textarea>
     </p>
 <div id="paypal-button-container"></div>
 </div>
-<div class="checkbox">
+<div class="confirmation-box">
 
 <input type="checkbox" required>
 
@@ -562,45 +551,8 @@ paypalBox.style.display = "none";
 });
 
 </script>
-<script>
-const countrySelect = document.getElementById("country");
-const bankOption = document.getElementById("bankTransferOption");
 
-bankOption.style.display = "none";
 
-countrySelect.addEventListener("change", function() {
-
-    if (this.value === "Sri Lanka") {
-        bankOption.style.display = "block";
-    } else {
-        bankOption.style.display = "none";
-    }
-
-});
-</script>
-
- <script>
-
-document.querySelectorAll('input[name="Payment Method"]').forEach(radio => {
-
-    radio.addEventListener("change", function(){
-
-        document.getElementById("paypalBox").style.display = "none";
-        document.getElementById("bankBox").style.display = "none";
-
-        if(this.value === "PayPal"){
-            document.getElementById("paypalBox").style.display = "block";
-        }
-
-        if(this.value === "Bank Transfer"){
-            document.getElementById("bankBox").style.display = "block";
-        }
-
-    });
-
-});
-
-</script>
 
     <script>
 document.getElementById("orderForm").addEventListener("submit", function(e){
