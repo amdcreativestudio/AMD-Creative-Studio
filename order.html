@@ -189,6 +189,9 @@ select option{
     }
 
 }
+    #bankTransferOption{
+    display:none;
+}
 .budget-wrapper{
     position:relative;
 }
@@ -377,13 +380,15 @@ paypalBox.style.display = "none";
 });
 
 </script>
-    <script>
+<script>
 const countrySelect = document.getElementById("country");
 const bankOption = document.getElementById("bankTransferOption");
 
-countrySelect.addEventListener("change", function(){
+bankOption.style.display = "none";
 
-    if(this.value === "Sri Lanka"){
+countrySelect.addEventListener("change", function() {
+
+    if (this.value === "Sri Lanka") {
         bankOption.style.display = "block";
     } else {
         bankOption.style.display = "none";
