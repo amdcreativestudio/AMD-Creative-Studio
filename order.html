@@ -244,9 +244,11 @@ Complete the form below to officially start your project with AMD Creative Studi
 
 <div class="budget-wrapper">
     <span id="currencySign">$</span>
-    <input type="number" id="budget" name="budget" placeholder="Budget">
+    <input type="number"
+           id="budget"
+           name="budget"
+           placeholder="Budget">
 </div>
-
 <input type="text" name="Deadline" placeholder="Deadline (Optional)">
 
 <textarea
@@ -274,7 +276,22 @@ required></textarea>
 </label>
 
 </div>
+<div id="paypalBox" style="display:none;margin-top:20px;">
 
+    <h3 class="section-title">PayPal Payment</h3>
+
+    <p>
+        Click below to complete your payment securely using PayPal.
+    </p>
+
+    <a id="paypalBtn"
+       target="_blank"
+       class="submit-btn"
+       style="display:inline-block;text-decoration:none;text-align:center;">
+       💳 Pay Now
+    </a>
+
+</div>
 <div class="checkbox">
 
 <input type="checkbox" required>
@@ -317,6 +334,39 @@ country.addEventListener("change", function(){
 
     currencySign.textContent = symbols[currency] || "$";
 });
+</script>
+    <script>
+
+const paymentRadios =
+document.querySelectorAll('input[name="Payment Method"]');
+
+const paypalBox =
+document.getElementById("paypalBox");
+
+paymentRadios.forEach(radio => {
+
+radio.addEventListener("change", function(){
+
+if(this.value === "PayPal"){
+
+paypalBox.style.display = "block";
+
+let amount =
+document.getElementById("budget").value || 0;
+
+document.getElementById("paypalBtn").href =
+"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=amdigitalvibe@gmail.com&currency_code=USD&amount=" + amount;
+
+}else{
+
+paypalBox.style.display = "none";
+
+}
+
+});
+
+});
+
 </script>
 </body>
 </html>
