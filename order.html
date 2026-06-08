@@ -228,6 +228,28 @@ select option{
     background:#1a1f35;
     color:white;
 }
+
+    .important-notice{
+    background:rgba(0,255,120,0.08);
+    border:1px solid rgba(0,255,120,0.25);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-radius:18px;
+    padding:20px;
+    margin:25px 0;
+    color:#ffffff;
+    text-align:left;
+}
+
+.important-notice h3{
+    color:#6dffb3;
+    margin-bottom:15px;
+}
+
+.important-notice p{
+    margin-bottom:12px;
+    line-height:1.7;
+}
 </style>
 </head>
 
@@ -240,7 +262,26 @@ select option{
 <p class="subtitle">
 Complete the form below to officially start your project with AMD Creative Studios.
 </p>
+select{
+    width:100%;
+    padding:15px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    color:white;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:15px;
+    outline:none;
+}
 
+select:focus{
+    border:1px solid #4fd1ff;
+}
+
+select option{
+    background:#1a1f35;
+    color:white;
+}
 <form action="https://formsubmit.co/amdcreativestudio1@gmail.com" method="POST">
 
 <input type="hidden" name="_subject" value="New AMD Creative Studios Order">
