@@ -528,7 +528,8 @@ required></textarea>
         I confirm that I have already discussed the project details and pricing with AMD Creative Studios via Live Chat.
     </label>
 </div>
-<button type="submit" class="submit-btn">
+<button type="submit" class="submit-btn"
+  disabled>
 🚀 Place Order
 </button>
 
@@ -580,6 +581,9 @@ paypalBox.style.display = "none";
 
     <script>
       let paymentCompleted = false;
+      const submitBtn = 
+        document.querySelector(".submit-btn");
+      submitBtn.disabled = true;
 document.getElementById("orderForm").addEventListener("submit", function(e){
 
 e.preventDefault();
@@ -660,6 +664,8 @@ onApprove: function(data, actions) {
     return actions.order.capture().then(function(details) {
 
         paymentCompleted = true;
+      submitBtn.disabled = false;
+      submitBtn.innerHTML  "✅ Place Order";
 
         const transactionId =
         details.purchase_units[0].payments.captures[0].id;
