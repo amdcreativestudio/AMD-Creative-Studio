@@ -381,6 +381,19 @@ select option{
     display:block;
     margin:20px auto;
 }
+  .payment-warning{
+    margin:15px 0;
+    padding:12px 16px;
+    background:rgba(255, 193, 7, 0.15);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(255, 193, 7, 0.4);
+    border-radius:12px;
+    color:#ffd54f;
+    font-size:14px;
+    text-align:center;
+    font-weight:600;
+}
 </style>
    <script src="https://www.paypal.com/sdk/js?client-id=AayqRNg5FS95tcWTv08y7cGgFahwZgrDhCMgyb-CtPt3ig680Q2n_bQxDwFSvAbotgHJpbLUKVymxlu0&currency=USD"></script>
 </head>
@@ -528,6 +541,9 @@ required></textarea>
         I confirm that I have already discussed the project details and pricing with AMD Creative Studios via Live Chat.
     </label>
 </div>
+
+  <div class="payment-warning">
+    🔔 Secure Checkout: complete your payment first to unlock the place order button.</div>
 <button type="submit" class="submit-btn"
   disabled>
 🚀 Place Order
