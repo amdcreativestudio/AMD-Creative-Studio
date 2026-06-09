@@ -682,6 +682,8 @@ onApprove: function(data, actions) {
         paymentCompleted = true;
       submitBtn.disabled = false;
       submitBtn.innerHTML  "✅ Place Order";
+      submitBtn.style.opacity = "1";
+      submitBtn.style.cursor = "pointer";
 
         const transactionId =
         details.purchase_units[0].payments.captures[0].id;
