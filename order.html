@@ -163,15 +163,24 @@ select option{
 
 .checkbox{
     display:flex;
-    gap:10px;
     align-items:flex-start;
-    margin-top:10px;
+    justify-content:flex-start;
+    gap:12px;
+    margin-top:15px;
+    text-align:left;
 }
 
 .checkbox input{
     width:auto;
-    margin-top:4px;
+    margin-top:5px;
+    flex-shrink:0;
 }
+
+.checkbox p{
+    margin:0;
+    text-align:left;
+}
+
 
 .submit-btn{
     border:none;
