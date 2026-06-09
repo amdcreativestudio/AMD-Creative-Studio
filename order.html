@@ -332,11 +332,22 @@ select option{
 
 .confirmation-box{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    gap:10px;
-    margin-top:20px;
+    justify-content:center;
     text-align:center;
+    gap:12px;
+    margin-top:20px;
+}
+
+.confirmation-box input[type="checkbox"]{
+    width:auto;
+    margin:0;
+}
+
+.confirmation-box p{
+    margin:0;
+    max-width:500px;
 }
 
 .place-order-btn{
@@ -510,7 +521,6 @@ I confirm that I have already discussed the project details and pricing with AMD
 </p>
 
 </div>
-
 <button type="submit" class="submit-btn">
 🚀 Place Order
 </button>
