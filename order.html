@@ -425,6 +425,10 @@ If you complete your payment using a Debit Card or Credit Card through PayPal, p
 <input type="hidden" name="_captcha" value="false">
 
 <input type="hidden" name="_next" value="https://amdcreativestudios.com/messages.html">
+  <input type="hidden"
+       id="transactionId"
+       name="Transaction ID"
+       value="">
 
 <input type="text" name="Full Name" placeholder="Full Name" required>
 
@@ -657,7 +661,14 @@ onApprove: function(data, actions) {
 
         paymentCompleted = true;
 
-        alert("Payment completed by " + details.payer.name.given_name);
+        const transactionId =
+        details.purchase_units[0].payments.captures[0].id;
+
+        document.getElementById("transactionId").value =
+        transactionId;
+
+        alert("Payment completed by " +
+        details.payer.name.given_name);
 
     });
 }
