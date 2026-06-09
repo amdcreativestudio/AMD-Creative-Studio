@@ -660,6 +660,7 @@ quantity.addEventListener(
     "change",
     updateBudget
 );
+updateBudget();
 </script>
     <script>
 paypal.Buttons({
@@ -670,7 +671,11 @@ paypal.Buttons({
         label: 'paypal'
     },
     createOrder: function(data, actions) {
-        let amount = document.getElementById("budget").value || "1";
+        let amount = document.getElementById("budget").value;
+        if(!amount || Number(amount) <= 0){
+            alert("Please select a service first.");
+            throw new Error("Invalid amount");
+        }
 
         return actions.order.create({
             purchase_units: [{
@@ -701,7 +706,17 @@ onApprove: function(data, actions) {
 
     });
 }
+
+,
+onCancel: function () {
+    alert("Payment was cancelled.");
+},
+onError: function (err) {
+    console.error(err);
+    alert("PayPal payment failed. Please try again or contact support.");
+}
 }).render('#paypal-button-container');
 </script>
 </body>
 </html>
+
