@@ -565,8 +565,10 @@ if(this.value === "PayPal"){
 
 paypalBox.style.display = "block";
 
-let amount =
-document.getElementById("budget").value || 0;
+const servicePrice = Number(document.getElementById("serviceType").value || 0);
+const qty = Number(document.getElementById("quantity").value || 1);
+
+const amount = (servicePrice * qty).toFixed(2);
 
 
 }else{
