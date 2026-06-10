@@ -386,9 +386,48 @@ window.trackOrder = async function () {
 
         document.getElementById("status").innerText =
         data.status;
+      
 
         document.getElementById("deliveryDate").innerText =
         data.deliveryDate;
+      document.getElementById("createdDate").innerText =
+data.createdDate;
+
+document.getElementById("lastUpdated").innerText =
+data.lastUpdated;
+
+document.getElementById("notes").innerText =
+data.notes;
+
+      if(data.currentStep==="Order Received"){
+document.getElementById("step1").innerHTML="🟢 Order Received";
+}
+
+if(data.currentStep==="Designing"){
+document.getElementById("step1").innerHTML="🟢 Order Received";
+document.getElementById("step2").innerHTML="🟢 Designing";
+}
+
+if(data.currentStep==="Editing"){
+document.getElementById("step1").innerHTML="🟢 Order Received";
+document.getElementById("step2").innerHTML="🟢 Designing";
+document.getElementById("step3").innerHTML="🟢 Editing";
+}
+
+if(data.currentStep==="Reviewing"){
+document.getElementById("step1").innerHTML="🟢 Order Received";
+document.getElementById("step2").innerHTML="🟢 Designing";
+document.getElementById("step3").innerHTML="🟢 Editing";
+document.getElementById("step4").innerHTML="🟢 Reviewing";
+}
+
+if(data.currentStep==="Completed"){
+document.getElementById("step1").innerHTML="🟢 Order Received";
+document.getElementById("step2").innerHTML="🟢 Designing";
+document.getElementById("step3").innerHTML="🟢 Editing";
+document.getElementById("step4").innerHTML="🟢 Reviewing";
+document.getElementById("step5").innerHTML="🟢 Completed";
+}
       const deliveryTime =
 new Date(data.deliveryDate).getTime();
 
