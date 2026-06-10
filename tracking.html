@@ -362,9 +362,7 @@ margin-top:15px;
 
 </a>
 
-<a id="downloadBtn" target="_blank" style="display:none;">
-<button>Download Files</button>
-</a>
+
 
 <div class="countdown" id="countdown">
 Loading...
@@ -415,11 +413,6 @@ window.trackOrder = async function () {
 alert("Please Enter Order ID");
 return;
 }
-
-    if(!orderId){
-        alert("Enter Order ID");
-        return;
-    }
 
     const docRef = doc(db, "orders", orderId);
 
@@ -611,6 +604,7 @@ const timer = setInterval(() => {
 </script>
 </body>
 </html>
+
 
 
 
