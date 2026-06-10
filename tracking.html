@@ -294,20 +294,39 @@ function toggleMenu(){
 document.getElementById("navbar").classList.toggle("active");
 }
 
-function trackOrder(){
+async function trackOrder(){
 
-const orderId =
-document.getElementById("orderInput").value.trim();
+ const orderId =
+ document.getElementById("orderInput").value.trim();
 
-if(orderId === ""){
-alert("Please enter your Order ID.");
-return;
-}
+ if(orderId === ""){
+   alert("Please enter your Order ID.");
+   return;
+ }
 
-document.getElementById("result").style.display="block";
+ const docRef = doc(db,"orders",orderId);
+ const docSnap = await getDoc(docRef);
 
-document.getElementById("orderId").innerHTML =
-"Order ID: " + orderId;
+ if(docSnap.exists()){
+
+   const data = docSnap.data();
+
+   document.getElementById("result").style.display="block";
+
+   document.getElementById("orderId").innerHTML =
+   "Order ID: " + data.orderID;
+
+   document.getElementById("status").innerHTML =
+   data.status;
+
+   document.getElementById("deliveryDate").innerHTML =
+   data.deliveryDate;
+
+ }else{
+
+   alert("Order Not Found");
+
+ }
 
 }
 
@@ -343,6 +362,69 @@ seconds + " Seconds";
 },1000);
 
 </script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "amd-creative-studios.firebaseapp.com",
+  projectId: "amd-creative-studios",
+  storageBucket: "amd-creative-studios.firebasestorage.app",
+  messagingSenderId: "423562148184",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.trackOrder = async function () {
+
+    const orderId =
+    document.getElementById("orderInput").value.trim();
+
+    if(!orderId){
+        alert("Enter Order ID");
+        return;
+    }
+
+    const docRef = doc(db, "orders", orderId);
+
+    const docSnap = await getDoc(docRef);
+
+    if(docSnap.exists()){
+
+        const data = docSnap.data();
+
+        document.getElementById("orderId").innerText =
+        data.orderID;
+
+        document.getElementById("status").innerText =
+        data.status;
+
+        document.getElementById("deliveryDate").innerText =
+        data.deliveryDate;
+
+        document.getElementById("customer").innerText =
+        data.customer;
+
+        document.getElementById("result").style.display =
+        "block";
+
+    }else{
+
+        alert("Order Not Found");
+
+    }
+
+};
+
+</script>
 </body>
 </html>
