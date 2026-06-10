@@ -411,6 +411,10 @@ window.trackOrder = async function () {
 
     const orderId =
     document.getElementById("orderInput").value.trim();
+  if(!orderId){
+alert("Please Enter Order ID");
+return;
+}
 
     if(!orderId){
         alert("Enter Order ID");
@@ -467,6 +471,24 @@ data.lastUpdated;
 
 document.getElementById("notes").innerText =
 data.notes;
+      if(data.currentStep==="Completed"){
+document.getElementById("step5").innerHTML="🟢 Completed";
+}
+
+  if(data.status==="Completed" && data.fileUrl){
+
+document.getElementById("downloadBtn").href =
+data.fileUrl;
+
+document.getElementById("downloadBtn").style.display =
+"inline-block";
+
+}else{
+
+document.getElementById("downloadBtn").style.display =
+"none";
+
+}
 if(data.fileUrl){
 
 document.getElementById("downloadBtn").href =
