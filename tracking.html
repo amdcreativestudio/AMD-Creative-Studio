@@ -455,7 +455,14 @@ statusEl.style.color="white";
 if(data.status==="Completed"){
 statusEl.style.background="#4caf50";
 statusEl.style.color="white";
+   document.getElementById("progressBar").style.width =
+        "100%";
+   document.getElementById("progressBar").innerText =
+        "100%";
+   document.getElementById("step5").innerHTML =
+        "🟢 Compleated";
 }
+    
 
         document.getElementById("deliveryDate").innerText =
         data.deliveryDate;
