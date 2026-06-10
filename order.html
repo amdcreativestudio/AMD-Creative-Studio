@@ -652,6 +652,26 @@ if(paymentMethod === "PayPal" && !paymentCompleted){
     return;
 
 }
+
+  const orderId = "AMD" + Date.now();
+
+let hiddenOrder =
+document.getElementById("orderIdField");
+
+if(!hiddenOrder){
+
+hiddenOrder = document.createElement("input");
+
+hiddenOrder.type = "hidden";
+hiddenOrder.name = "Order ID";
+hiddenOrder.id = "orderIdField";
+
+document.getElementById("orderForm")
+.appendChild(hiddenOrder);
+
+}
+
+hiddenOrder.value = orderId;
 emailjs.sendForm(
 "service_eju8gat",
 "template_0wg9hmk",
