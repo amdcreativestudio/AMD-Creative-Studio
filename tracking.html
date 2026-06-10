@@ -430,7 +430,7 @@ return;
         document.getElementById("status").innerText =
         data.status;
  
-
+const statusEl = document.getElementByid("status");
 if(data.status==="Pending"){
 statusEl.style.background="#ffb300";
 statusEl.style.color="white";
@@ -486,15 +486,7 @@ document.getElementById("downloadBtn").style.display =
 "none";
 
 }
-if(data.fileUrl){
 
-document.getElementById("downloadBtn").href =
-data.fileUrl;
-
-document.getElementById("downloadBtn").style.display =
-"inline-block";
-
-}
       if(data.currentStep==="Order Received"){
 document.getElementById("step1").innerHTML="🟢 Order Received";
 }
