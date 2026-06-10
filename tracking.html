@@ -162,6 +162,28 @@ font-weight:bold;
 color:#00bfff;
 }
 
+
+.progress-container{
+width:100%;
+height:25px;
+background:rgba(255,255,255,.1);
+border-radius:50px;
+overflow:hidden;
+margin-top:20px;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:white;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+transition:.5s;
+}
+
 .footer{
 text-align:center;
 margin-top:40px;
@@ -280,6 +302,8 @@ Order ID: AMD-2026-001
 
 </div>
 
+<div class="progress-container"><div class="progress-bar" id="progressBar">0%</div></div>
+
 <div class="countdown" id="countdown">
 Loading...
 </div>
@@ -392,6 +416,27 @@ const timer = setInterval(() => {
         document.getElementById("customer").innerText =
         data.customer;
 
+        if(data.progress !== undefined){
+            document.getElementById("progressBar").style.width =
+            data.progress + "%";
+            document.getElementById("progressBar").innerText =
+            data.progress + "%";
+        }
+
+        const statusEl = document.getElementById("status");
+
+        if(data.status === "Pending"){
+            statusEl.style.color = "#ffd700";
+        }else if(data.status === "Designing"){
+            statusEl.style.color = "#00bfff";
+        }else if(data.status === "Editing"){
+            statusEl.style.color = "#c084ff";
+        }else if(data.status === "Reviewing"){
+            statusEl.style.color = "#ffae42";
+        }else if(data.status === "Completed"){
+            statusEl.style.color = "#7dffb0";
+        }
+
         document.getElementById("result").style.display =
         "block";
 
@@ -406,4 +451,5 @@ const timer = setInterval(() => {
 </script>
 </body>
 </html>
+
 
