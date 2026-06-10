@@ -272,6 +272,12 @@ Order ID: AMD-2026-001
 <span id="deliveryDate">
 20 June 2026
 </span>
+
+<div class="info">
+<strong>Customer:</strong>
+<span id="customer">-</span>
+</div>
+
 </div>
 
 <div class="countdown" id="countdown">
@@ -293,73 +299,6 @@ Loading...
 function toggleMenu(){
 document.getElementById("navbar").classList.toggle("active");
 }
-
-async function trackOrder(){
-
- const orderId =
- document.getElementById("orderInput").value.trim();
-
- if(orderId === ""){
-   alert("Please enter your Order ID.");
-   return;
- }
-
- const docRef = doc(db,"orders",orderId);
- const docSnap = await getDoc(docRef);
-
- if(docSnap.exists()){
-
-   const data = docSnap.data();
-
-   document.getElementById("result").style.display="block";
-
-   document.getElementById("orderId").innerHTML =
-   "Order ID: " + data.orderID;
-
-   document.getElementById("status").innerHTML =
-   data.status;
-
-   document.getElementById("deliveryDate").innerHTML =
-   data.deliveryDate;
-
- }else{
-
-   alert("Order Not Found");
-
- }
-
-}
-
-const deliveryDate =
-new Date("2026-06-20 23:59:59").getTime();
-
-setInterval(function(){
-
-const now = new Date().getTime();
-
-const distance = deliveryDate - now;
-
-const days =
-Math.floor(distance/(1000*60*60*24));
-
-const hours =
-Math.floor((distance%(1000*60*60*24))/
-(1000*60*60));
-
-const minutes =
-Math.floor((distance%(1000*60*60))/
-(1000*60));
-
-const seconds =
-Math.floor((distance%(1000*60))/1000);
-
-document.getElementById("countdown").innerHTML =
-days + " Days " +
-hours + " Hours " +
-minutes + " Minutes " +
-seconds + " Seconds";
-
-},1000);
 
 </script>
 <script type="module">
@@ -428,3 +367,4 @@ window.trackOrder = async function () {
 </script>
 </body>
 </html>
+
