@@ -233,7 +233,31 @@ padding:25px;
 font-size:22px;
 }
 }
+.steps{
+margin-top:25px;
+text-align:left;
+}
 
+.steps div{
+padding:8px 0;
+font-weight:bold;
+position:relative;
+padding-left:30px;
+}
+
+.steps div::before{
+content:"";
+position:absolute;
+left:8px;
+top:22px;
+width:2px;
+height:18px;
+background:rgba(255,255,255,.3);
+}
+
+.steps div:last-child::before{
+display:none;
+}
 </style>
 </head>
 
@@ -317,6 +341,26 @@ Order ID: AMD-2026-001
 <div class="info"><strong>Created:</strong> <span id="createdDate">-</span></div>
 <div class="info"><strong>Last Updated:</strong> <span id="lastUpdated">-</span></div>
 <div class="info"><strong>Notes:</strong> <span id="notes">-</span></div>
+  <a id="downloadBtn"
+target="_blank"
+style="display:none;text-decoration:none;">
+
+<button style="
+padding:12px 25px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+color:white;
+margin-top:15px;
+">
+
+📥 Download Delivered Files
+
+</button>
+
+</a>
 
 <a id="downloadBtn" target="_blank" style="display:none;">
 <button>Download Files</button>
@@ -386,7 +430,32 @@ window.trackOrder = async function () {
 
         document.getElementById("status").innerText =
         data.status;
-      
+      const statusEl = document.getElementById("status");
+
+if(data.status==="Pending"){
+statusEl.style.background="#ffb300";
+statusEl.style.color="white";
+}
+
+if(data.status==="Designing"){
+statusEl.style.background="#2196f3";
+statusEl.style.color="white";
+}
+
+if(data.status==="Editing"){
+statusEl.style.background="#9c27b0";
+statusEl.style.color="white";
+}
+
+if(data.status==="Reviewing"){
+statusEl.style.background="#ff9800";
+statusEl.style.color="white";
+}
+
+if(data.status==="Completed"){
+statusEl.style.background="#4caf50";
+statusEl.style.color="white";
+}
 
         document.getElementById("deliveryDate").innerText =
         data.deliveryDate;
@@ -398,7 +467,15 @@ data.lastUpdated;
 
 document.getElementById("notes").innerText =
 data.notes;
+if(data.fileUrl){
 
+document.getElementById("downloadBtn").href =
+data.fileUrl;
+
+document.getElementById("downloadBtn").style.display =
+"inline-block";
+
+}
       if(data.currentStep==="Order Received"){
 document.getElementById("step1").innerHTML="🟢 Order Received";
 }
