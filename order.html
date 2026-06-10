@@ -532,6 +532,13 @@ required></textarea>
     </div>
 </div>
 
+<div id="bankTransferConfirmBox" style="display:none;margin-top:15px;">
+<label>
+<input type="checkbox" id="bankTransferConfirm">
+ I have completed the bank transfer and sent the receipt to AMD Creative Studios.
+</label>
+</div>
+
 <div id="paypalBox">
 
     <h3 class="section-title">PayPal Payment</h3>
@@ -787,9 +794,38 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 </script>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+ const bankConfirm=document.getElementById("bankTransferConfirm");
+ const submitBtn=document.querySelector(".submit-btn");
+
+ function updateBankButton(){
+   const bankRadio=document.querySelector('input[value="Bank Transfer"]');
+   if(bankRadio && bankRadio.checked){
+      submitBtn.disabled=!bankConfirm.checked;
+   }
+ }
+
+ document.querySelectorAll('input[name="Payment Method"]').forEach(r=>{
+   r.addEventListener("change",function(){
+      const box=document.getElementById("bankTransferConfirmBox");
+      if(this.value==="Bank Transfer"){
+         box.style.display="block";
+         updateBankButton();
+      }else{
+         box.style.display="none";
+      }
+   });
+ });
+
+ if(bankConfirm){
+    bankConfirm.addEventListener("change", updateBankButton);
+ }
+});
+</script>
+
 </body>
 </html>
-
-
 
 
