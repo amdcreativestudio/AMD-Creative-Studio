@@ -428,6 +428,8 @@ return;
     if(docSnap.exists()){
 
         const data = docSnap.data();
+       document.getElementById("downloadBtn").style.display =
+        "none";
 
         document.getElementById("orderId").innerText =
         data.orderID;
