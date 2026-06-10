@@ -383,21 +383,28 @@ Tawk_API.onLoad = function() {
 };
 
 document.getElementById("openChat").addEventListener("click", function() {
-    Tawk_API.showWidget();
-    Tawk_API.maximize();
-});
-</script>
-<script>
 
-document.getElementById("openChat").addEventListener("click",function(){
+    var visitorName = prompt("Enter Your Name");
 
-    if(typeof Tawk_API !== "undefined"){
-        Tawk_API.showWidget();
-      Tawk_API.maximize();
+    if (!visitorName || visitorName.trim() === "") {
+        alert("Please enter your name.");
+        return;
     }
 
-});
+    Tawk_API.setAttributes({
+        name: visitorName
+    }, function(error) {
 
+        if(error){
+            console.log(error);
+        }
+
+        Tawk_API.showWidget();
+        Tawk_API.maximize();
+
+    });
+
+});
 </script>
 <footer>
 <p>© 2026 AMD Creative Studios. All Rights Reserved.</p>
