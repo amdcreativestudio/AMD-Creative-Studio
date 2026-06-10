@@ -258,6 +258,25 @@ background:rgba(255,255,255,.3);
 .steps div:last-child::before{
 display:none;
 }
+  .tracking-notice{
+    margin:20px auto;
+    max-width:650px;
+
+    background:rgba(0,255,120,0.12);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    border:1px solid rgba(0,255,120,0.35);
+    border-radius:15px;
+
+    padding:15px 20px;
+
+    color:#7dffb0;
+    font-size:15px;
+    text-align:center;
+
+    box-shadow:0 0 15px rgba(0,255,120,0.15);
+}
 </style>
 </head>
 
@@ -290,7 +309,10 @@ Order Tracking
 <p class="subtitle">
 Track your order status and estimated delivery time in real-time.
 </p>
-
+<div class="tracking-notice">
+📩 Your Tracking ID has been sent to your email address.
+Please check your inbox and use that Tracking ID to track your order.
+</div>
 <div class="search-box">
 
 <input
