@@ -429,8 +429,9 @@ return;
 
         document.getElementById("status").innerText =
         data.status;
+      const statusEl = document.getElementByid("status");
  
-const statusEl = document.getElementByid("status");
+
 if(data.status==="Pending"){
 statusEl.style.background="#ffb300";
 statusEl.style.color="white";
