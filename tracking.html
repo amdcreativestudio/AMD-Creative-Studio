@@ -184,6 +184,8 @@ background:linear-gradient(90deg,#8a2be2,#00bfff);
 transition:.5s;
 }
 
+.steps{margin-top:20px;text-align:left;}
+.steps div{padding:8px;font-weight:bold;}
 .footer{
 text-align:center;
 margin-top:40px;
@@ -303,6 +305,22 @@ Order ID: AMD-2026-001
 </div>
 
 <div class="progress-container"><div class="progress-bar" id="progressBar">0%</div></div>
+
+<div class="steps">
+<div id="step1">⚪ Order Received</div>
+<div id="step2">⚪ Designing</div>
+<div id="step3">⚪ Editing</div>
+<div id="step4">⚪ Reviewing</div>
+<div id="step5">⚪ Completed</div>
+</div>
+
+<div class="info"><strong>Created:</strong> <span id="createdDate">-</span></div>
+<div class="info"><strong>Last Updated:</strong> <span id="lastUpdated">-</span></div>
+<div class="info"><strong>Notes:</strong> <span id="notes">-</span></div>
+
+<a id="downloadBtn" target="_blank" style="display:none;">
+<button>Download Files</button>
+</a>
 
 <div class="countdown" id="countdown">
 Loading...
@@ -451,5 +469,6 @@ const timer = setInterval(() => {
 </script>
 </body>
 </html>
+
 
 
