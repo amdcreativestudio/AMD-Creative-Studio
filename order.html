@@ -643,11 +643,15 @@ paypalBox.style.display = "none";
 document.getElementById("orderForm").addEventListener("submit", function(e){
 
 e.preventDefault();
-  if(!paymentCompleted){
+const paymentMethod =
+document.querySelector('input[name="Payment Method"]:checked').value;
+
+if(paymentMethod === "PayPal" && !paymentCompleted){
+
     alert("Please complete PayPal payment first.");
     return;
-}
 
+}
 emailjs.sendForm(
 "service_eju8gat",
 "template_0wg9hmk",
