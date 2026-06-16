@@ -72,11 +72,11 @@ a{
 
 <input type="password" id="password" placeholder="Password">
 
-<button class="login-btn">
+<button class="login-btn" onclick="login()">
 Login
 </button>
 
-<button class="google-btn">
+<button class="google-btn" onclick="googleLogin()">
 Continue with Google
 </button>
 
@@ -86,6 +86,75 @@ Don't have an account?
 </p>
 
 </div>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+GoogleAuthProvider,
+signInWithPopup
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyBB9-CB7dxioWNylyj2_fRwx4iDWEiq_E",
+authDomain: "amd-creative-studios.firebaseapp.com",
+projectId: "amd-creative-studios",
+storageBucket: "amd-creative-studios.firebasestorage.app",
+messagingSenderId: "423562148184",
+appId: "1:423562148184:web:5b17845f083a32debf8d2d"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.login = async function(){
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+alert("Login Successful");
+
+window.location.href="index.html";
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+}
+
+window.googleLogin = async function(){
+
+try{
+
+const provider = new GoogleAuthProvider();
+
+await signInWithPopup(auth, provider);
+
+alert("Google Login Successful");
+
+window.location.href="index.html";
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+}
+
+</script>
 </body>
 </html>
