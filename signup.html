@@ -98,6 +98,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+        const auth = getAuth(app);
 window.signup = async function(){
 
 const email = document.getElementById("email").value;
