@@ -378,12 +378,44 @@ header{justify-content:flex-start;gap:20px;}
     display:block;
     border-radius:25px;
 }
+ .auth-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin:25px 0;
+}
+
+.login-btn,
+.signup-btn{
+    padding:14px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+    color:white;
+    transition:0.3s;
+}
+
+.login-btn{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+}
+
+.signup-btn{
+    background:linear-gradient(90deg,#2196f3,#00e5ff);
+}
+
+.login-btn:hover,
+.signup-btn:hover{
+    transform:translateY(-3px);
+}
 </style>
 </head>
 <body>
 <div id="loader">
   <div class="loader-content">
     <h1>AMD Creative Studios</h1>
+  
     <div class="spinner"></div>
     <p>Loading...</p>
   </div>
@@ -416,6 +448,10 @@ header{justify-content:flex-start;gap:20px;}
 <section class="hero">
 <h1>AMD Creative Studios</h1>
  <p>
+  <div class="auth-buttons">
+   <a href="login.html" class="login-btn">Login</a>
+      <a href="Signup.html" class="signup-btn">Sign Up</a>
+  </div>
 AMD Creative Studios provides professional graphic design, logo design, video editing, social media post design, banner design, YouTube thumbnail design and creative digital services in Sri Lanka.
 </p>
 <p>Professional Creative Design & Digital Media Studio</p>
