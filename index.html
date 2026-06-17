@@ -722,7 +722,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 
 import {
   getAuth,
-  onAuthStateChanged
+  onAuthStateChanged,
+ signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
@@ -741,6 +742,7 @@ const profile = document.getElementById("profileContainer");
   
   const profileCard = document.getElementById("profileCard");
   const userEmail = document.getElementById("userEmail");
+  const logoutBtn = document.getElementById("logoutBtn")
   profile.addEventListener("click", () => {
 
 if(profileCard.style.display==="block"){
@@ -772,7 +774,11 @@ onAuthStateChanged(auth, (user) => {
   }
 
 });
-
+logoutBtn.addEventListener("click",async() =>{
+ await signOut(auth);
+ profileCard.style.display = "none";
+ alert("Logged Out Successfully");
+});
 </script>
 </body>
 </html>
