@@ -91,6 +91,12 @@ Don't have an account?
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/0.12.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -104,7 +110,7 @@ const firebaseConfig = {
   messagingSenderId: "423562148184",
   appId: "1:423562148184:web:5b17845f083a32debf8d2d",
   measurementId: "G-GXPFE4VVVY"
-};
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -112,7 +118,7 @@ const analytics = getAnalytics(app);
     const auth = getAuth(app);
 
 window.login = async function(){
-    alert("Signup Button Clicked");
+
 
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
