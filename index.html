@@ -709,69 +709,57 @@ document.getElementById("loader").style.display="none";
 
 });
 </script>
- <script type="module">
-
+ 
+<script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-import {
-  getAuth,
-onAuthStateChanged,
- signOut
-} from
- "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "amd-creative-studios.firebaseapp.com",
+  projectId: "amd-creative-studios",
+  storageBucket: "amd-creative-studios.firebasestorage.app",
+  messagingSenderId: "423562148184",
+  appId: "1:423562148184:web:5b17845f083a32debf8d2d"
+};
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-else{
- document.getElementById("loginStatus").style.display="none";
+const profile = document.getElementById("profileContainer");
+const profileCard = document.getElementById("profileCard");
+const userEmail = document.getElementById("userEmail");
+const logoutBtn = document.getElementById("logoutBtn");
+const loginStatus = document.getElementById("loginStatus");
 
-profile.innerHTML = "👤";
-
-document.getElementById("userEmail").innerHTML = `
-<p>Please Login Or Sign Up</p>
-
-<button onclick="location.href='login.html'"
-style="
-width:100%;
-padding:10px;
-margin-top:10px;
-background:#2196f3;
-border:none;
-color:white;
-border-radius:8px;
-cursor:pointer;
-">
-Login
-</button>
-
-<button onclick="location.href='signup.html'"
-style="
-width:100%;
-padding:10px;
-margin-top:10px;
-background:#00c853;
-border:none;
-color:white;
-border-radius:8px;
-cursor:pointer;
-">
-Sign Up
-</button>
-`;
-
-document.getElementById("logoutBtn").style.display = "none";
-
+if(profile && profileCard){
+ profile.addEventListener("click", ()=>{
+  profileCard.style.display = profileCard.style.display === "block" ? "none" : "block";
+ });
 }
 
+onAuthStateChanged(auth,(user)=>{
+ if(user){
+   if(loginStatus) loginStatus.style.display="block";
+   if(userEmail) userEmail.innerHTML="📧 " + user.email;
+   if(logoutBtn) logoutBtn.style.display="block";
+ }else{
+   if(loginStatus) loginStatus.style.display="none";
+   if(userEmail){
+      userEmail.innerHTML = "<p>Please Login Or Sign Up</p><button onclick=\"location.href='login.html'\">Login</button><button onclick=\"location.href='signup.html'\">Sign Up</button>";
+   }
+   if(logoutBtn) logoutBtn.style.display="none";
+ }
 });
-logoutBtn.addEventListener("click", async () => {
 
-  await signOut(auth);
-
-  alert("Logged Out Successfully");
-
-  location.reload();
-
-});
+if(logoutBtn){
+ logoutBtn.addEventListener("click", async ()=>{
+   await signOut(auth);
+   alert("Logged Out Successfully");
+   location.reload();
+ });
+}
 </script>
 </body>
 </html>
+
