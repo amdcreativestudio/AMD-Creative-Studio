@@ -690,7 +690,7 @@ slideIndex++;
 if(slideIndex>slides.length){slideIndex=1;}
 slides[slideIndex-1].classList.add("active");
 dots[slideIndex-1].classList.add("active-dot");
-setTimeout(showSlides,3000);
+setTimeout(showSlides,3000); 
 }
 showSlides();
 </script>
@@ -715,19 +715,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 
 import {
   getAuth,
- onAuthStateChanged(auth, (user) => {
+onAuthStateChanged,
+ signOut
+} from
+ "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-if(user){
- document.getElementById("liginStatus").style.display="block";
 
-profile.innerHTML = "👤";
-
-document.getElementById("userEmail").innerHTML =
-"📧 " + user.email;
-
-document.getElementById("logoutBtn").style.display = "block";
-
-}
 else{
  document.getElementById("loginStatus").style.display="none";
 
