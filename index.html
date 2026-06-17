@@ -535,10 +535,7 @@ Logout
 <section class="hero">
 <h1>AMD Creative Studios</h1>
  <p>
-  <div class="auth-buttons">
-   <a href="login.html" class="login-btn">Login</a>
-      <a href="signup.html" class="signup-btn">Sign Up</a>
-  </div>
+  
 AMD Creative Studios provides professional graphic design, logo design, video editing, social media post design, banner design, YouTube thumbnail design and creative digital services in Sri Lanka.
 </p>
 <p>Professional Creative Design & Digital Media Studio</p>
@@ -741,12 +738,12 @@ if(profile && profileCard){
 onAuthStateChanged(auth,(user)=>{
  if(user){
    if(loginStatus) loginStatus.style.display="block";
-   if(userEmail) userEmail.innerHTML="📧 " + user.email;
+   if(userEmail) userEmail.innerHTML='<div style="padding:15px;color:white;">📧 '+user.email+'</div>';
    if(logoutBtn) logoutBtn.style.display="block";
  }else{
    if(loginStatus) loginStatus.style.display="none";
    if(userEmail){
-      userEmail.innerHTML = "<p>Please Login Or Sign Up</p><button onclick=\"location.href='login.html'\">Login</button><button onclick=\"location.href='signup.html'\">Sign Up</button>";
+      userEmail.innerHTML='<div style="padding:15px;color:white;"><p>Please Login Or Sign Up</p><a href="login.html" class="login-btn">Login</a> <a href="signup.html" class="signup-btn">Sign Up</a></div>';
    }
    if(logoutBtn) logoutBtn.style.display="none";
  }
