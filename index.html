@@ -457,7 +457,10 @@ box-shadow:0 0 20px rgba(0,0,0,.5);
 z-index:9999;
 ">
 
-<div style="
+<div id="profileCard">
+
+<div id="loginStatus"
+style="
 background:#00c853;
 padding:12px;
 font-weight:bold;
@@ -467,20 +470,10 @@ color:white;
 ✅ You Are Logged In
 </div>
 
-<div id="userEmail"
-style="padding:15px;color:white;">
-Email Here
+<div id="userEmail">
 </div>
 
-<button id="logoutBtn"
-style="
-width:100%;
-padding:12px;
-border:none;
-background:#ff4444;
-color:white;
-cursor:pointer;
-">
+<button id="logoutBtn">
 Logout
 </button>
 
@@ -722,85 +715,60 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 
 import {
   getAuth,
-  onAuthStateChanged,
- signOut
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+ onAuthStateChanged(auth, (user) => {
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBB9-CB7dxioWNylyj2_fRwx4i1DWEiq_E",
-  authDomain: "amd-creative-studios.firebaseapp.com",
-  projectId: "amd-creative-studios",
-  storageBucket: "amd-creative-studios.firebasestorage.app",
-  messagingSenderId: "423562148184",
-  appId: "1:423562148184:web:5b17845f083a32debf8d2d"
-};
+if(user){
+ document.getElementById("liginStatus").style.display="block";
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+profile.innerHTML = "👤";
 
-const profile = document.getElementById("profileContainer");
-  
-  const profileCard = document.getElementById("profileCard");
-  const userEmail = document.getElementById("userEmail");
-  const logoutBtn = document.getElementById("logoutBtn");
-profile.addEventListener("click", () => {
+document.getElementById("userEmail").innerHTML =
+"📧 " + user.email;
 
-    if(profileCard.style.display==="block"){
-
-        profileCard.style.display="none";
-
-    }else{
-
-        profileCard.style.display="block";
-
-    }
-
-});
-onAuthStateChanged(auth, (user) => {
-
-  if(user){
-
-    profile.innerHTML = "👤";
-
-    userEmail.innerHTML ="📧"+user.email;
-
-  }else{
-
-    profile.innerHTML = "👤";
-
-    userEmail.innerHTML = `
-    <p>Please Login Or Sign Up</p>
-
-    <button onclick="location.href='login.html'"
-    style="
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    background:#2196f3;
-    border:none;
-    color:white;
-    border-radius:8px;
-    cursor:pointer;
-    ">
-    Login
-    </button>
-
-    <button onclick="location.href='signup.html'"
-    style="
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    background:#00c853;
-    border:none;
-    color:white;
-    border-radius:8px;
-    cursor:pointer;
-    ">
-    Sign Up
-    </button>
-    `;
+document.getElementById("logoutBtn").style.display = "block";
 
 }
+else{
+ document.getElementById("loginStatus").style.display="none";
+
+profile.innerHTML = "👤";
+
+document.getElementById("userEmail").innerHTML = `
+<p>Please Login Or Sign Up</p>
+
+<button onclick="location.href='login.html'"
+style="
+width:100%;
+padding:10px;
+margin-top:10px;
+background:#2196f3;
+border:none;
+color:white;
+border-radius:8px;
+cursor:pointer;
+">
+Login
+</button>
+
+<button onclick="location.href='signup.html'"
+style="
+width:100%;
+padding:10px;
+margin-top:10px;
+background:#00c853;
+border:none;
+color:white;
+border-radius:8px;
+cursor:pointer;
+">
+Sign Up
+</button>
+`;
+
+document.getElementById("logoutBtn").style.display = "none";
+
+}
+
 });
 logoutBtn.addEventListener("click", async () => {
 
