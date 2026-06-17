@@ -769,15 +769,47 @@ onAuthStateChanged(auth, (user) => {
 
     profile.innerHTML = "👤";
 
-    profile.title = "Please Login Or Sign Up";
+    userEmail.innerHTML = `
+    <p>Please Login Or Sign Up</p>
 
-  }
+    <button onclick="location.href='login.html'"
+    style="
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    background:#2196f3;
+    border:none;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    ">
+    Login
+    </button>
 
-});
-logoutBtn.addEventListener("click",async() =>{
- await signOut(auth);
- profileCard.style.display = "none";
- alert("Logged Out Successfully");
+    <button onclick="location.href='signup.html'"
+    style="
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    background:#00c853;
+    border:none;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    ">
+    Sign Up
+    </button>
+    `;
+
+}
+logoutBtn.addEventListener("click", async () => {
+
+  await signOut(auth);
+
+  alert("Logged Out Successfully");
+
+  location.reload();
+
 });
 </script>
 </body>
