@@ -743,20 +743,19 @@ const profile = document.getElementById("profileContainer");
   const profileCard = document.getElementById("profileCard");
   const userEmail = document.getElementById("userEmail");
   const logoutBtn = document.getElementById("logoutBtn");
-  profile.addEventListener("click", () => {
+profile.addEventListener("click", () => {
 
-if(profileCard.style.display==="block"){
+    if(profileCard.style.display==="block"){
 
-profileCard.style.display="none";
+        profileCard.style.display="none";
 
-}else{
+    }else{
 
-profileCard.style.display="block";
+        profileCard.style.display="block";
 
-}
+    }
 
 });
-
 onAuthStateChanged(auth, (user) => {
 
   if(user){
