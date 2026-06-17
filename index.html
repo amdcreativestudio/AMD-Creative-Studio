@@ -633,5 +633,47 @@ document.getElementById("loader").style.display="none";
 
 });
 </script>
+ <script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getAuth,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "amd-creative-studios.firebaseapp.com",
+  projectId: "amd-creative-studios",
+  storageBucket: "amd-creative-studios.firebasestorage.app",
+  messagingSenderId: "423562148184",
+  appId: "1:423562148184:web:5b17845f083a32debf8d2d"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const profile = document.getElementById("profileContainer");
+
+onAuthStateChanged(auth, (user) => {
+
+  if(user){
+
+    profile.innerHTML = "👤";
+
+    profile.title = user.email;
+
+  }else{
+
+    profile.innerHTML = "👤";
+
+    profile.title = "Please Login Or Sign Up";
+
+  }
+
+});
+
+</script>
 </body>
 </html>
