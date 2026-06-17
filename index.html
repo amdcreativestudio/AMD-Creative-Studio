@@ -443,99 +443,16 @@ header{justify-content:flex-start;gap:20px;}
  <a href="messages.html">Message</a>
  <a href="tracking.html">Track Order</a>
 <a href="about.html">About Us</a>
- <div id="profileContainer" title="Please Login Or Sign Up">👤</div>
- <div id="profileCard" style="
-display:none;
-position:absolute;
-top:70px;
-right:20px;
-width:260px;
-background:#111;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 0 20px rgba(0,0,0,.5);
-z-index:9999;
-">
-
-<div id="profileCard">
-
-<div id="loginStatus"
-style="
-background:#00c853;
-padding:12px;
-font-weight:bold;
-text-align:center;
-color:white;
-">
-✅ You Are Logged In
-</div>
-
-<div id="userEmail">
-</div>
-
-<button id="logoutBtn">
-Logout
-</button>
-
-</div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact Us</a>
-  <a href="messages.html">Message</a>
-  <a href="tracking.html">Track Order</a>
-<a href="about.html">About Us</a>
-  <div id="profileContainer" title="Please Login Or Sign Up">👤</div>
- <div id="profileCard" style="
-display:none;
-position:absolute;
-top:70px;
-right:20px;
-width:260px;
-background:#111;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 0 20px rgba(0,0,0,.5);
-z-index:9999;
-">
-
-<div style="
-background:#00c853;
-padding:12px;
-font-weight:bold;
-text-align:center;
-color:white;
-">
-✅ You Are Logged In
-</div>
-
-<div id="userEmail"
-style="padding:15px;color:white;">
-Email Here
-</div>
-
-<button id="logoutBtn"
-style="
-width:100%;
-padding:12px;
-border:none;
-background:#ff4444;
-color:white;
-cursor:pointer;
-">
-Logout
-</button>
-
-</div>
-</div>
+ </div>
 </header>
 
 <section class="hero">
 <h1>AMD Creative Studios</h1>
  <p>
-  
+  <div class="auth-buttons">
+   <a href="login.html" class="login-btn">Login</a>
+      <a href="signup.html" class="signup-btn">Sign Up</a>
+  </div>
 AMD Creative Studios provides professional graphic design, logo design, video editing, social media post design, banner design, YouTube thumbnail design and creative digital services in Sri Lanka.
 </p>
 <p>Professional Creative Design & Digital Media Studio</p>
@@ -738,12 +655,12 @@ if(profile && profileCard){
 onAuthStateChanged(auth,(user)=>{
  if(user){
    if(loginStatus) loginStatus.style.display="block";
-   if(userEmail) userEmail.innerHTML='<div style="padding:15px;color:white;">📧 '+user.email+'</div>';
+   if(userEmail) userEmail.innerHTML="📧 " + user.email;
    if(logoutBtn) logoutBtn.style.display="block";
  }else{
    if(loginStatus) loginStatus.style.display="none";
    if(userEmail){
-      userEmail.innerHTML='<div style="padding:15px;color:white;"><p>Please Login Or Sign Up</p><a href="login.html" class="login-btn">Login</a> <a href="signup.html" class="signup-btn">Sign Up</a></div>';
+      userEmail.innerHTML = "<p>Please Login Or Sign Up</p><button onclick=\"location.href='login.html'\">Login</button><button onclick=\"location.href='signup.html'\">Sign Up</button>";
    }
    if(logoutBtn) logoutBtn.style.display="none";
  }
