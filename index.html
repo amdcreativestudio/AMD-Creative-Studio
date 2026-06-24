@@ -681,6 +681,65 @@ if(logoutBtn){
    location.reload();
  });
 }
+ #fireworks{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:99999;
+}
+</script>
+ <canvas id="fireworks"></canvas>
+<script>
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+function createFirework(){
+for(let i=0;i<120;i++){
+particles.push({
+x: canvas.width/2,
+y: canvas.height/2,
+vx: (Math.random()-0.5)*12,
+vy: (Math.random()-0.5)*12,
+life: 100
+});
+}
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach((p,index)=>{
+p.x += p.vx;
+p.y += p.vy;
+p.life--;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,3,0,Math.PI*2);
+ctx.fillStyle=`hsl(${Math.random()*360},100%,60%)`;
+ctx.fill();
+
+if(p.life<=0){
+particles.splice(index,1);
+}
+});
+
+requestAnimationFrame(animate);
+}
+
+createFirework();
+animate();
+
+setTimeout(()=>{
+canvas.style.display="none";
+},1500);
 </script>
 </body>
 </html>
