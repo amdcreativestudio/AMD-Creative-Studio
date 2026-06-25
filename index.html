@@ -409,16 +409,75 @@ header{justify-content:flex-start;gap:20px;}
 .signup-btn:hover{
     transform:translateY(-3px);
 }
- #profileContainer{
-  font-size:28px;
-  cursor:pointer;
-  color:white;
-  margin-left:20px;
-  
- }
- #profileContainer:hover{
-  color:#00d4ff
- }
+#profileContainer{
+position:relative;
+margin-left:20px;
+}
+
+#profileIcon{
+font-size:28px;
+cursor:pointer;
+color:white;
+transition:.3s;
+}
+
+#profileIcon:hover{
+color:#00bfff;
+}
+
+#profileDropdown{
+display:none;
+position:absolute;
+top:45px;
+right:0;
+width:250px;
+background:rgba(15,15,20,.95);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.12);
+border-radius:18px;
+padding:15px;
+box-shadow:0 0 25px rgba(0,191,255,.25);
+z-index:9999;
+}
+
+.dropdown-btn{
+display:block;
+padding:12px;
+margin-top:10px;
+text-align:center;
+text-decoration:none;
+color:white;
+border-radius:12px;
+background:rgba(255,255,255,.06);
+transition:.3s;
+}
+
+.signup{
+background:linear-gradient(90deg,#8a2be2,#00bfff);
+}
+
+.dropdown-btn:hover{
+transform:translateY(-2px);
+}
+
+#userEmail{
+padding:12px;
+text-align:center;
+font-weight:bold;
+word-break:break-word;
+}
+
+#logoutBtn{
+width:100%;
+margin-top:12px;
+padding:12px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+background:#ff4444;
+color:white;
+font-weight:bold;
+}
 </style>
 </head>
 <body>
@@ -443,6 +502,26 @@ header{justify-content:flex-start;gap:20px;}
  <a href="messages.html">Message</a>
  <a href="tracking.html">Track Order</a>
 <a href="about.html">About Us</a>
+ <div id="profileContainer">
+    <span id="profileIcon">👤</span>
+
+    <div id="profileDropdown">
+
+        <div id="guestMenu">
+            <a href="login.html" class="dropdown-btn">🔐 Login</a>
+            <a href="signup.html" class="dropdown-btn signup">📝 Sign Up</a>
+        </div>
+
+        <div id="userMenu" style="display:none;">
+            <div id="userEmail"></div>
+
+            <button id="logoutBtn">
+                🚪 Sign Out
+            </button>
+        </div>
+
+    </div>
+</div>
 </nav>
    <div class="mobile-menu" id="mobileMenu">
 <a href="index.html">Home</a>
@@ -451,18 +530,32 @@ header{justify-content:flex-start;gap:20px;}
 <a href="messages.html">Message</a>
 <a href="tracking.html">Track Order</a>
 <a href="about.html">About Us</a>
+    <div id="profileContainer">
+    <span id="profileIcon">👤</span>
+
+    <div id="profileDropdown">
+
+        <div id="guestMenu">
+            <a href="login.html" class="dropdown-btn">🔐 Login</a>
+            <a href="signup.html" class="dropdown-btn signup">📝 Sign Up</a>
+        </div>
+
+        <div id="userMenu" style="display:none;">
+            <div id="userEmail"></div>
+
+            <button id="logoutBtn">
+                🚪 Sign Out
+            </button>
+        </div>
+
+    </div>
+</div>
 </div>
 </header>
 
 <section class="hero">
 <h1>AMD Creative Studios</h1>
- <p>
-  <div class="auth-buttons">
-   <a href="login.html" class="login-btn">Login</a>
-      <a href="signup.html" class="signup-btn">Sign Up</a>
-  </div>
-AMD Creative Studios provides professional graphic design, logo design, video editing, social media post design, banner design, YouTube thumbnail design and creative digital services in Sri Lanka.
-</p>
+
 <p>Professional Creative Design & Digital Media Studio</p>
 </section>
 
@@ -648,30 +741,51 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const profile = document.getElementById("profileContainer");
-const profileCard = document.getElementById("profileCard");
-const userEmail = document.getElementById("userEmail");
-const logoutBtn = document.getElementById("logoutBtn");
-const loginStatus = document.getElementById("loginStatus");
+const profile=document.getElementById("profileContainer");
+const dropdown=document.getElementById("profileDropdown");
 
-if(profile && profileCard){
- profile.addEventListener("click", ()=>{
-  profileCard.style.display = profileCard.style.display === "block" ? "none" : "block";
- });
+const guestMenu=document.getElementById("guestMenu");
+const userMenu=document.getElementById("userMenu");
+
+const userEmail=document.getElementById("userEmail");
+const logoutBtn=document.getElementById("logoutBtn");
+
+profile.addEventListener("click",()=>{
+
+dropdown.style.display =
+dropdown.style.display==="block"
+?"none"
+:"block";
+
+});
+
+document.addEventListener("click",(e)=>{
+
+if(!profile.contains(e.target)){
+
+dropdown.style.display="none";
+
 }
 
+});
 onAuthStateChanged(auth,(user)=>{
- if(user){
-   if(loginStatus) loginStatus.style.display="block";
-   if(userEmail) userEmail.innerHTML="📧 " + user.email;
-   if(logoutBtn) logoutBtn.style.display="block";
- }else{
-   if(loginStatus) loginStatus.style.display="none";
-   if(userEmail){
-      userEmail.innerHTML = "<p>Please Login Or Sign Up</p><button onclick=\"location.href='login.html'\">Login</button><button onclick=\"location.href='signup.html'\">Sign Up</button>";
-   }
-   if(logoutBtn) logoutBtn.style.display="none";
- }
+
+if(user){
+
+guestMenu.style.display="none";
+
+userMenu.style.display="block";
+
+userEmail.innerHTML="📧<br>"+user.email;
+
+}else{
+
+guestMenu.style.display="block";
+
+userMenu.style.display="none";
+
+}
+
 });
 
 if(logoutBtn){
