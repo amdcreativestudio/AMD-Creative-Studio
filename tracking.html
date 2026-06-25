@@ -384,7 +384,23 @@ margin-top:15px;
 
 </a>
 
-
+<a id="reviewBtn"
+   href="https://www.trustpilot.com/review/amdcreativestudios.com"
+   target="_blank"
+   style="
+   display:none;
+   width:260px;
+   margin:15px auto;
+   padding:14px;
+   background:linear-gradient(90deg,#8a2be2,#00bfff);
+   color:white;
+   text-decoration:none;
+   border-radius:30px;
+   font-weight:bold;
+   text-align:center;
+   ">
+⭐ Write a Review
+</a>
 
 <div class="countdown" id="countdown">
 Loading...
@@ -445,7 +461,7 @@ return;
         const data = docSnap.data();
        document.getElementById("downloadBtn").style.display =
         "none";
-
+         
         document.getElementById("orderId").innerText =
         data.orderID;
 
@@ -500,20 +516,20 @@ data.notes;
 document.getElementById("step5").innerHTML="🟢 Completed";
 }
 
-  if(data.status==="Completed" && data.fileUrl){
+if(data.status==="Completed" && data.fileUrl){
 
-document.getElementById("downloadBtn").href =
-data.fileUrl;
-    document.getElementById("downloadBtn").style.display =
-"inline-block";
+document.getElementById("downloadBtn").href = data.fileUrl;
 
-document.getElementById("downloadBtn").style.display =
-"inline-block";
+document.getElementById("downloadBtn").style.display = "inline-block";
 
-}else{
+document.getElementById("reviewBtn").style.display = "inline-block";
 
-document.getElementById("downloadBtn").style.display =
-"none";
+}
+else{
+
+document.getElementById("downloadBtn").style.display = "none";
+
+document.getElementById("reviewBtn").style.display = "none";
 
 }
 
